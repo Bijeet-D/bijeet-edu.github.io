@@ -1,0 +1,39 @@
+  <!DOCTYPE html>
+<html>
+    <head>
+<title>HTML Tutorial</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+<h1 id="testing"></h1>
+<iframe id="funfunfun"></iframe>
+<a class="home-button" href="index.html">
+<img src="https://i.postimg.cc/Bvq9hRJw/New-Piskel.png">
+</a>
+<style>
+
+   html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+    #funfunfun {
+        position: absolute;
+        top: 0px;
+        width: 100vw;
+        height:100vh;
+        border: none;
+    }
+</style>
+<script src="scripts.js"></script>
+<script>
+    
+const game =localStorage.getItem("gms") //get game that is selected
+document.getElementById("funfunfun").src = game //iframe source is that game
+localStorage.removeItem("gms");
+</script>
+</body>
+</html>
