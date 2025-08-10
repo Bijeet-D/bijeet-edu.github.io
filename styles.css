@@ -1,0 +1,93 @@
+/* Place your CSS styles in this file */
+/*game button styling*/
+
+#header-thing{
+    text-align: center;
+}
+
+.game-button{
+padding: 0px;
+background: none;
+border: none;
+cursor: pointer;
+display: inline-block;
+transition: transform 0.1s ease;/* when transform properties are changed on this, within 0.1 secs(more smooth)*/ 
+position: relative;
+text-align: center;
+color: rgb(255, 255, 255);
+}
+
+
+.game-button:hover{
+ transform: scale(0.95);   
+}
+
+.game-button:hover .hover-text {
+    opacity: 1;
+}
+
+.game-button img{
+    transition: 0.5s ease;
+    height: 200px;
+    width: 200px;
+}
+
+
+
+
+.game-button:hover img {
+    filter: grayscale(20%) brightness(70%);
+}
+
+.game-button:active{
+transform: scale(0.9); /* makes button get smaller on click*/
+}
+
+/* below is for the text on the img*/
+
+.hover-text{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*font-size: 30px;*/
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+text-shadow: 3px 3px 10px floralwhite;
+opacity: 0;
+z-index: 3;
+transition: 0.5s ease;
+}
+
+/*below is tweaking text size and stuff for individual buttons*/
+
+#ten-mtd-text {
+  display: block;
+}
+
+/*other stuff now*/
+
+.home-button{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    cursor: pointer;
+    width: 50px !important; 
+    height: 50px !important;
+    transition: transform 0.1s ease;
+    display: flex;
+    background:none;
+    border: none;
+    z-index: 10000;
+}
+
+.home-button img {
+    object-fit: cover;
+}
+
+.home-button:active {
+    transform: scale(0.9);
+    
+}
+
+
