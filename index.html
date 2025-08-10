@@ -1,0 +1,135 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>schoolology</title>
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="styles.css">
+
+      <link rel="icon"  href="https://i.postimg.cc/GtSxXQYq/favicon.png">
+
+
+    </head>
+
+    <body>
+
+        <h1 id="header-thing">Fun intuitive learning reasources</h1>
+        <h2>new update to enchance learning</h2>
+        <h2>mode: out of school mode gms no w0rk</h2>
+        <h3>schoolology v2 will allow you to download this for easier acses to fun learning</h3>
+        <p>Credits: Drive Mad -- Fancade; 10 Minutes Till Dawn -- Flanne; Slope -- Y8.com; Stickman Hook -- Madbox; CircloO -- Florian van Strien; CircloO 2 -- Florian van Strien; Ngon -- Ross Landgreen; Red Ball 4 -- Yohoho Games</p>
+        
+        <!-- Load external JavaScript -->
+        <script src="scripts.js"></script>
+        
+     <!--   <button class="home-button">
+            <img src="https://i.postimg.cc/Bvq9hRJw/New-Piskel.png">
+        </button>  -->
+        
+        <div  id="driveMad" class="game-button"> <!--Drive-Mad-Game.html -->
+        <div id="driveMad-div">
+        <img src="https://i.postimg.cc/cCwJr3C2/download-1.jpg">
+        <h1 class="hover-text">Drive Mad</h1>
+        </div>
+    </div>
+    <div  id="ten-MTD" class="game-button"> <!--10-mins-till-dawn.html-->
+        <div>
+        <img src="https://i.postimg.cc/Gh5RsC4r/10-MTD-picture.png">
+        <h1 class="hover-text" id="ten-mtd-text">10 Minutes Till Dawn</h1>
+        </div>
+    </div>
+
+<div  id="slope" class="game-button"> <!--s10p3.html-->
+        <div>
+        <img src="https://i.postimg.cc/FsvKb7cN/download-3.jpg">
+        <h1 class="hover-text" id="slope-text">Slope</h1>
+        </div>
+    </div>
+
+<div  id="stickman-hook" class="game-button"> <!--stickman-holding-a-hook.html-->
+        <div>
+        <img src="https://i.postimg.cc/vZ88GgBv/download-4.jpg">
+        <h1 class="hover-text" id="stickman-hook-text">Stickman Hook</h1>
+        </div>
+    </div>
+
+<div  id="circloo" class="game-button"> <!--circloo.html-->
+        <div>
+        <img src="https://i.postimg.cc/Hs6STBwk/circloo-game-image-png.png">
+        <h1 class="hover-text" id="circloo-text">circloO</h1>
+        </div>
+    </div>
+
+        <div  id="circloo-2-button" class="game-button"> <!--circloo2yayz.html-->
+        <div>
+        <img src="https://i.postimg.cc/K8YHTdGT/971353830f129fd3f1446398792e6997.png">
+        <h1 class="hover-text" id="circloo2-text">CircloO 2</h1>
+        </div>
+    </div>
+
+    <div  id="ngon-button" class="game-button"> <!--ngon.html-->
+        <div>
+        <img src="https://i.postimg.cc/5230fysV/ngon-game-image-copy.jpg">
+        <h1 class="hover-text" id="Ngon-text">Ngon</h1>
+        </div>
+    </div>
+
+    <div  id="red-ball-4-button" class="game-button"> <!--red-ball-4-hope.html-->
+        <div>
+        <img src="https://i.postimg.cc/C58mKK1w/red-ball-4-game-image.jpg">
+        <h1 class="hover-text" id="redball4-text">Red Ball 4</h1>
+        </div>
+    </div>
+
+
+
+        <script src="scripts.js"></script>
+
+    <script>
+        document.getElementById("circloo").addEventListener("click", function(){
+        localStorage.setItem("gms", "circloo.html");
+        window.location.href = "./file.html";      
+});
+
+    document.getElementById("stickman-hook").addEventListener("click", function(){
+        localStorage.setItem("gms", "stickman-holding-a-hook.html")
+        window.location.href = "./file.html"
+});
+
+    document.getElementById("slope").addEventListener("click", function(){
+        localStorage.setItem("gms", "s10p3.html")
+        window.location.href = "./file.html"
+});
+
+    document.getElementById("ten-MTD").addEventListener("click", function(){
+        localStorage.setItem("gms", "10-mins-till-dawn.html")
+        window.location.href = "./file.html"
+});
+
+    document.getElementById("driveMad").addEventListener("click", function(){
+        localStorage.setItem("gms", "Drive-Mad-Game.html")
+        window.location.href = "./file.html"
+});
+
+    document.getElementById("ngon-button").addEventListener("click", function(){
+        localStorage.setItem("gms", "ngon.html")
+        window.location.href = "./file.html"
+});
+
+    document.getElementById("circloo-2-button").addEventListener("click", function(){
+        localStorage.setItem("gms", "circloo2yayz.html")
+        window.location.href = "./file.html"
+});
+
+    document.getElementById("red-ball-4-button").addEventListener("click", function(){
+        localStorage.setItem("gms", "red-ball-4-hope.html")
+        window.location.href = "./file.html"
+});
+    </script>
+
+    </body>
+
+</html>
