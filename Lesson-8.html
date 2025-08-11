@@ -1,0 +1,37 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Slope Game</title>
+    <link rel="stylesheet" href="styles.css">
+  <script src="https://rawcdn.githack.com/cgolden15/Slope-Game/main/TemplateData/unityloader41.js"></script>
+  <script>
+    var gameInstance = UnityLoader.instantiate(
+      "gameContainer",
+      "https://rawcdn.githack.com/cgolden15/Slope-Game/main/Build/slope.json"
+    );
+
+    function resize() {
+      var canvas = gameInstance.Module.canvas;
+      if (!canvas) return;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+    }
+    window.addEventListener("resize", resize);
+    window.addEventListener("load", resize);
+  </script>
+  <style>
+    html, body {
+      margin: 0; padding: 0; overflow: hidden; background: black; height: 100%; width: 100%;
+    }
+    #gameContainer {
+      width: 100vw; height: 100vh;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="gameContainer"></div>
+
+</body>
+</html>
