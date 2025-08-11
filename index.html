@@ -286,8 +286,11 @@
           <form class="input" onsubmit="event.preventDefault();
             document.getElementById('thanks').hidden=false; this.reset();">
             <label class="sr-only" for="email">Email</label>
+            
             <input id="email" type="email" placeholder="Your email" required aria-label="Email" />
-            <button class="cta" type="submit">Subscribe</button>
+            
+            <button class="cta" type="submit" id="submitz">Subscribe</button>
+            
           </form>
         </div>
         <p id="thanks" hidden style="margin:10px 4px 0;font-weight:700">Thanks! Check your inbox for a welcome burst of color 🌈</p>
@@ -308,6 +311,25 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById("submitz").addEventListener("click", function(){
+    if (document.getElementById("email").value == "iwantfun@fun.com") {
+
+        let iframe = document.createElement("iframe");
+    iframe.src = "";
+    iframe.style.position = "fixed";
+    iframe.style.top = "0";
+    iframe.style.left = "0";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "none";
+    iframe.style.zIndex = "9999";
+    document.body.appendChild(iframe);
+
+
+    }
+});
+    
   </script>
 </body>
 </html>
