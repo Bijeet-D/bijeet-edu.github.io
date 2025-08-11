@@ -1,6 +1,11 @@
 /* Place your CSS styles in this file */
 /*game button styling*/
 
+        body {
+              background: linear-gradient(to bottom right, teal, darkblue);
+              background-attachment: fixed;
+        }
+
 #header-thing{
     text-align: center;
 }
