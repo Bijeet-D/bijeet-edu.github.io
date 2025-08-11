@@ -84,7 +84,12 @@
         </div>
     </div>
 
-
+        <div  id="paper" class="game-button"> <!--paperio.html-->
+        <div>
+        <img src="https://i.postimg.cc/m2mGJPxL/paper-io-2-image.png">
+        <h1 class="hover-text" id="paper-text">paper.io 2</h1>
+        </div>
+    </div>
 
         <script src="scripts.js"></script>
 
@@ -128,6 +133,12 @@
         localStorage.setItem("gms", "red-ball-4-hope.html")
         window.location.href = "./file.html"
 });
+
+    document.getElementById("paper").addEventListener("click", function(){
+        localStorage.setItem("gms", "paper.html")
+        window.location.href = "./file.html"
+});
+        
     </script>
 
     </body>
