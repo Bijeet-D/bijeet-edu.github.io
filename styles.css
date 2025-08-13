@@ -14,7 +14,7 @@
         color: white;
 }
 
-.game-button{
+.lesson-button{
 padding: 0px;
 background: none;
 border: none;
@@ -27,15 +27,15 @@ color: rgb(255, 255, 255);
 }
 
 
-.game-button:hover{
+.lesson-button:hover{
  transform: scale(0.95);   
 }
 
-.game-button:hover .hover-text {
+.lesson-button:hover .hover-text {
     opacity: 1;
 }
 
-.game-button img{
+.lesson-button img{
     transition: 0.5s ease;
     height: 200px;
     width: 200px;
@@ -44,11 +44,11 @@ color: rgb(255, 255, 255);
 
 
 
-.game-button:hover img {
+.lesson-button:hover img {
     filter: grayscale(20%) brightness(70%);
 }
 
-.game-button:active{
+.lesson-button:active{
 transform: scale(0.9); /* makes button get smaller on click*/
 }
 
