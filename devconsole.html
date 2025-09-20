@@ -107,6 +107,15 @@
         </div>
     </div>
 
+
+
+    <div  id="rand-ball-physics" class="lesson-button"> 
+        <div>
+        <img src="https://basketrandom.io/data/image/basket-random.jpg">
+        <h1 class="hover-text">Basket Random</h1>
+        </div>
+    </div>
+
 <!--idkthisisabovescripttag-->
         
         <script src="scripts.js"></script>
@@ -114,6 +123,12 @@
     <script>
 
      //idkthisisbelowscripttag
+
+        
+        document.getElementById("rand-ball-physics").addEventListener("click", function(){
+        localStorage.setItem("gms", "Lesson-13.html");
+        window.location.href = "./file.html";      
+});
 
         
         document.getElementById("Math-Attack-Destroy-The-Attackers").addEventListener("click", function(){
