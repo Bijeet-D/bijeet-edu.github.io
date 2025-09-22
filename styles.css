@@ -1,5 +1,5 @@
 /* Place your CSS styles in this file */
-/*game button styling*/
+/*gm button styling*/
 
         html {
               background: linear-gradient(to bottom right, teal, darkblue);
@@ -14,7 +14,7 @@
         color: white;
 }
 
-.lesson-button{
+.lesson-button, .lesson-button img{
 padding: 0px;
 background: none;
 border: none;
@@ -24,6 +24,7 @@ transition: transform 0.1s ease;/* when transform properties are changed on this
 position: relative;
 text-align: center;
 color: rgb(255, 255, 255);
+border-radius: 25px;
 }
 
 
