@@ -18,7 +18,6 @@ function checkForIframe(mutationsList, observer) {
   let keysPressed = [];
     
 document.addEventListener("keydown", (event) => {
-  if (keyForHide.includes(event.key)) {
     if (!keysPressed.includes(event.key)) {
     keysPressed.push(event.key);
     }
