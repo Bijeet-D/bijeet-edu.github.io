@@ -1,5 +1,5 @@
 const frame = document.getElementById("sign-in")
-  const frameOGZIndex = frame.style.zIndex
+  const frameOGZIndex = 9999
   let keyForHide = "Alt"
 
 document.addEventListener("keydown", (event) => {
