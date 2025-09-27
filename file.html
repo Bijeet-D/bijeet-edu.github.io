@@ -39,6 +39,27 @@ document.getElementById("funfunfun").src = game //iframe source is that game
     
   }
 localStorage.removeItem("gms");
+/*                                    *\
+//===================================\\
+\\===================================//
+\*                                     */ 
+
+  
+  const keysPressed = new Set();
+
+  document.addEventListener("keydown", (event) => {
+    keysPressed.add(event.key.toLowerCase());
+
+    // Check if both 'p' and 'l' are pressed
+    if (keysPressed.has('p') && keysPressed.has('l')) {
+      document.documentElement.style.display = "none"; // hides entire page
+    }
+  });
+
+  document.addEventListener("keyup", (event) => {
+    keysPressed.delete(event.key.toLowerCase());
+  });
+  
 </script>
 </body>
 </html>
