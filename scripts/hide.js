@@ -25,7 +25,7 @@ document.addEventListener("keydown", (event) => {
   // Check which key was pressed
   if (keysPressed.includes(keyForHide[0]) && keysPressed.includes(keyForHide[1])) {
     if (frame) {
-    frame.style.zIndex = "-1";
+    frame.style.visibility = 'hidden';
     }
   } 
 });
@@ -35,7 +35,7 @@ document.addEventListener("keyup", (event) => {
     const indexOfKey = keysPressed.indexOf(event.key)
   keysPressed.splice(indexOfKey, 1)
     if (frame) {
-      frame.style.zIndex = "9999";
+      frame.style.visibility = 'visible';
     }
     }
 
