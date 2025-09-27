@@ -21,7 +21,6 @@ document.addEventListener("keydown", (event) => {
     if (!keysPressed.includes(event.key)) {
     keysPressed.push(event.key);
     }
-  }
   
   // Check which key was pressed
   if (keysPressed.includes(keyForHide[0]) && keysPressed.includes(keyForHide[1])) {
@@ -41,5 +40,4 @@ document.addEventListener("keyup", (event) => {
     }
 
 });
-
 
