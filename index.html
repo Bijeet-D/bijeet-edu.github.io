@@ -318,37 +318,23 @@
 
         //document.write("");
 
-      
+
+  let scriptTag = document.querySelector("script");
+
+
 let iframe = Object.assign(document.createElement("iframe"), {
     id: "sign-in",
     src: "./devconsole.html",
     style: "position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:9999"
 });
-document.body.appendChild(iframe);
 
+document.body.insertBefore(newEl, scriptTag);
       let state = true
 
     }
 });
     
-  </script>
-   <script>
-     let hideKeys = ["p", "l"]
-
-let keysPressed = {};  // keys pressed object
-
-onkeydown = onkeyup = function(e) {
-  e = e || event; // fallback for old browsers idk whose acually gonna be on one but who cares
-  keysPressed[e.key] = (e.type === "keydown"); 
-  /* insert conditional here */
-};
-
-
-if (keysPressed[hideKeys[0]] && keysPressed[hideKeys[1]]) {
-  document.body.style.visibility = 'hidden'; // hide the whole body
-} else {
-  document.body.style.visibility = 'visible'; // show it again
-}
+  </script src="scripts/hide.js"><script>
 
    </script>
 </body>
