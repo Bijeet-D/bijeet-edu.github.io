@@ -50,44 +50,6 @@ localStorage.removeItem("gms");
 \*                                     */ 
 
   
-  // keys that need to be pressed to hide the page
-  const triggerKeys = ['p', 'l'];
-
-  //  which keys are being pressed
-  const keysPressed = {};
-
-  let pageHidden = false;
-
-  document.addEventListener('keydown', (event) => {
-    const key = event.key.toLowerCase();
-
-    // if key is in array
-    if (!triggerKeys.includes(key)) return;
-
-    keysPressed[key] = true;
-
-    // make sure all keys are pressed
-    const allPressed = triggerKeys.every(k => keysPressed[k]);
-    if (allPressed && !pageHidden) {
-      document.documentElement.style.display = 'none';
-      pageHidden = true;
-    }
-  });
-
-  document.addEventListener('keyup', (event) => {
-    const key = event.key.toLowerCase();
-    if (!triggerKeys.includes(key)) return;
-
-    keysPressed[key] = false;
-
-    // if they arnt pressed show page
-    const allPressed = triggerKeys.every(k => keysPressed[k]);
-    if (!allPressed && pageHidden) {
-      document.documentElement.style.display = '';
-      pageHidden = false;
-    }
-  });
-  
 </script>
 </body>
 </html>
