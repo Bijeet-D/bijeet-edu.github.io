@@ -1,6 +1,6 @@
 let hideKeys = ["p", "l"]
 
-let map = {};  // keys pressed object
+let KeysPressed = {};  // keys pressed object
 
 onkeydown = onkeyup = function(e) {
   e = e || event; // fallback for old browsers idk whose acually gonna be on one but who cares
@@ -9,7 +9,7 @@ onkeydown = onkeyup = function(e) {
 };
 
 
-if (map[hideKeys[0]] && map[hideKeys[1]]) {
+if (KeysPressed[hideKeys[0]] && KeysPressed[hideKeys[1]]) {
   document.body.style.visibility = 'hidden'; // hide the whole body
 } else {
   document.body.style.visibility = 'visible'; // show it again
