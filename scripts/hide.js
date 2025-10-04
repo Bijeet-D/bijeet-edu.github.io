@@ -1,4 +1,4 @@
-let hideKeys = ["p", l]
+let hideKeys = ["p", "l"]
 
 let map = {};  // keys pressed object
 
