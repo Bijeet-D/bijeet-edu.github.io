@@ -2,6 +2,34 @@
 
 document.getElementById("submitz").addEventListener("click", faviconstuff);
 
+document.getElementById("submitz").addEventListener("click", function(){
+  if ( localStorage.getItem("auto_about:blank") == true) {
+let win = window.open("about:blank", "_blank");
+                            win.document.write(`
+                            <iframe id="frame" src="index2.html"></iframe>
+                            <style>
+                                html, body {
+                                padding: 0px;
+                                margin: 0px;
+                                }
+    
+                                #frame {
+                                padding: 0px;
+                                margin: 0px;
+                                width: 100%;
+                                height: 100%;
+                                border: none;
+                                }
+                            </style>
+                            `);
+  }
+  
+});
+
+/*
+
+*/
+
 
 
 
