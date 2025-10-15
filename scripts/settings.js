@@ -1,4 +1,18 @@
-function downloadHTML() {
+const autoAboutBlankCheckbox = document.getElementById("autoAboutBlankCheckbox")
+
+
+autoAboutBlankCheckbox.addEventListener("change", function(){
+  if (autoAboutBlankCheckbox.checked) {
+    localStorage.setItem("auto_about:blank", true);
+  } else {
+    localStorage.setItem("auto_about:blank", false);
+  }
+
+});
+
+
+  
+  function downloadHTML() {
     const htmlForDownload = `
     
     <!DOCTYPE html>
@@ -40,4 +54,3 @@ link.click();
 URL.revokeObjectURL(url);
 
 }
-
