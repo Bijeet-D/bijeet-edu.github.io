@@ -1,11 +1,21 @@
 //wrong name for file, but if i change den see curly may bl 0 c   k
 
 
-document.getElementById("submitz").addEventListener("click", function(){
-  if ( localStorage.getItem("auto_about:blank") == true) {
+
+/*
+
+*/
+
+
+
+
+function faviconstuff() {
+
+//auto about:blank
+    if ( localStorage.getItem("auto_about:blank") == true) {
 let win = window.open("about:blank", "_blank");
                             win.document.write(`
-                            <iframe id="frame" src="index2.html"></iframe>
+                            <iframe id="frame" src="devconsole.html"></iframe>
                             <style>
                                 html, body {
                                 padding: 0px;
@@ -22,17 +32,9 @@ let win = window.open("about:blank", "_blank");
                             </style>
                             `);
   }
-  
-});
 
-/*
+//end==============
 
-*/
-
-
-
-
-function faviconstuff() {
   
 const faviconElement = document.getElementById("favicon");
 const GCfavicon = "https://www.gstatic.com/classroom/ic_product_classroom_144.png"
