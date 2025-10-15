@@ -54,3 +54,23 @@ link.click();
 URL.revokeObjectURL(url);
 
 }
+
+
+
+
+function googleClassroomFavicon() {
+    localStorage.setItem("favicon", "GoogleClassroom");
+  }
+
+  function googleDocsFavicon() {
+    localStorage.setItem("favicon", "GoogleDocs");
+  }
+  
+
+  function GmailFavicon() {
+    localStorage.setItem("favicon", "Gmail");
+  }
+  
+  function googleDriveFavicon() {
+    localStorage.setItem("favicon", "GoogleDrive");
+  }
