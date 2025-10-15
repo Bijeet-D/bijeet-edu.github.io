@@ -1,6 +1,5 @@
 //wrong name for file, but if i change den see curly may bl 0 c   k
 
-document.getElementById("submitz").addEventListener("click", faviconstuff);
 
 document.getElementById("submitz").addEventListener("click", function(){
   if ( localStorage.getItem("auto_about:blank") == true) {
