@@ -1,69 +1,88 @@
-let DeepestFrame = window;
+//wrong name for file, but if i change den see curly may bl 0 c   k
 
-function getDeepestFrame() {
-  let active = document.activeElement;
-  while (active && active.tagName === "IFRAME" && active.contentDocument?.activeElement) {
-    active = active.contentDocument.activeElement;
-  }
-  console.log("deepest frame returned!!!! ===============");
-  return active?.ownerDocument?.defaultView || window;
-}
-
-function updateDeepestFrame() {
-  const UpdatedFrame = getDeepestFrame();
-  console.log("update deepest frame run&&&&&&&&&&&&&&***********");
+document.getElementById("submitz").addEventListener("click", faviconstuff);
 
 
 
 
-
-
-    DeepestFrame.removeEventListener("keydown", handleKeypress);
-    DeepestFrame.removeEventListener("keyup", handleKeypress);
-
-    DeepestFrame = UpdatedFrame;
-
-    DeepestFrame.addEventListener("keydown", handleKeypress);
-    DeepestFrame.addEventListener("keyup", handleKeypress);
-    DeepestFrame.addEventListener("blur", updateDeepestFrame, true);
-    DeepestFrame.addEventListener("focus", updateDeepestFrame, true);
-    
-}
-updateDeepestFrame() //idk why this makes it work but it does
-
-//window.addEventListener("load", updateDeepestFrame, true);
-//window.addEventListener("click", updateDeepestFrame, true);
-
-window.addEventListener("focus", updateDeepestFrame, true);
-window.addEventListener("blur", updateDeepestFrame, true);
-
-
-
-let hideKeys = ["p", "l"];
-let KeysPressed = {};
-
-
-function handleKeypress(event) {
-  console.log(" keypress workes");
+function faviconstuff() {
   
-  if (event.type === "keydown") {
-    KeysPressed[event.key] = true;
-    console.log(event.key)
-  } else if (event.type === "keyup") {
-    KeysPressed[event.key] = false;
-  }
-  const defaultDisplay = document.body.style.display
-  if (KeysPressed[hideKeys[0]] && KeysPressed[hideKeys[1]]) {
-    
-    console.log(" hidekeys pressed");
-    document.body.style.display = 'none'
+const faviconElement = document.getElementById("favicon");
+const GCfavicon = "https://www.gstatic.com/classroom/ic_product_classroom_144.png"
+const GDfavicon = "images/GDfavicon.png"
+const GmailFaviconImg = "images/GmailFavicon.png"
+const GDriveFavicon = "images/GoogleDriveFavicon.png"
+//idk (idk how to make sections and to lazy to spam "=")
+//websiteRedirectInputContainer.style.display = 'none';       
+//kdi
 
-  } else {
-    document.body.style.display = defaultDisplay;
-  }
+
+
+
+//idk ======= ONLOAD STUFF
+
+if (localStorage.getItem("favicon")) {
+  const favicon = localStorage.getItem("favicon")
+  
+  if (favicon === "GoogleClassroom") { // google classroom
+    googleClassroomFavicon()
+  } else if (favicon === "GoogleDocs") {
+    googleDocsFavicon()
+  } else if (favicon === "Gmail") {
+    GmailFavicon()
+  } else if (favicon === "GoogleDrive") {
+    googleDriveFavicon()
+  } 
+
+
 
 
 }
 
 
 
+//kdi ===========
+
+
+
+
+
+// INTERACTIVE STUFF JS
+
+
+ 
+  //END OF INTERACTIVE JS STUFF
+
+
+
+
+
+
+
+  function googleClassroomFavicon() {
+    faviconElement.setAttribute("href", GCfavicon);
+    document.title = "Home";
+    localStorage.setItem("favicon", "GoogleClassroom");
+  }
+
+  function googleDocsFavicon() {
+    faviconElement.setAttribute("href", GDfavicon);
+    document.title = "Google Docs";
+    localStorage.setItem("favicon", "GoogleDocs");
+  }
+  
+
+  function GmailFavicon() {
+    faviconElement.setAttribute("href", GmailFaviconImg);
+    document.title = "Inbox";
+    localStorage.setItem("favicon", "Gmail");
+  }
+  
+  function googleDriveFavicon() {
+    faviconElement.setAttribute("href", GDriveFavicon);
+    document.title = "Home - Google Drive";
+    localStorage.setItem("favicon", "GoogleDrive");
+  }
+
+
+}
