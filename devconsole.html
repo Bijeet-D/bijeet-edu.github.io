@@ -19,6 +19,50 @@
 
     </head>
 
+            <div id="headerWrapper">
+            <header id="headeryay">
+
+                <div class="in-header">
+
+                    <h1 onclick="window.location.href='index2.html'" class="coolBijeet-edu headerText text-button fake-h1">Bijeet-EDU</h1>
+
+                </div>
+                
+
+                <div class="in-header">
+                    <a href="settings.html" class="white-text headerText inline-block-element padding-between-text text-button fake-h1">Settings</a>
+                    <h1 onclick="openInaboutBlank()" class="white-text headerText inline-block-element padding-between-text text-button fake-h1">about:blank</h1>
+                </div>                
+                    
+                <script>
+                    function openInaboutBlank() {
+                        let win = window.open("about:blank", "_blank");
+                        win.document.write(`
+                        <iframe id="frame" src="index2.html"></iframe>
+                        <style>
+                            html, body {
+                            padding: 0px;
+                            margin: 0px;
+                            }
+
+                            #frame {
+                            padding: 0px;
+                            margin: 0px;
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            }
+                        </style>
+                        `);
+                    }
+                </script>
+                
+
+            </header>
+            <!--END HEADER-->
+        </div>
+
+    
     <body>
 
         <h1 id="header-thing" class="white-text">Fun intuitive learning reasources</h1>
