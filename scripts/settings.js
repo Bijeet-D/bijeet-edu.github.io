@@ -2,6 +2,7 @@ const autoAboutBlankCheckbox = document.getElementById("autoAboutBlankCheckbox")
 
 
 autoAboutBlankCheckbox.addEventListener("change", function(){
+  console.log("hi")
   if (autoAboutBlankCheckbox.checked) {
     localStorage.setItem("auto_about:blank", true);
   } else {
@@ -10,6 +11,9 @@ autoAboutBlankCheckbox.addEventListener("change", function(){
 
 });
 
+if (localStorage.getItem("auto_about:blank") == true) {
+  autoAboutBlankCheckbox.checked = true
+}
 
   
   function downloadHTML() {
