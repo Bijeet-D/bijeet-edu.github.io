@@ -1,17 +1,51 @@
-/* Place your CSS styles in this file */
+ /* Place your CSS styles in this file */
 /*gm button styling*/
 
-        html {
-              background: linear-gradient(to bottom right, teal, darkblue);
-              background-attachment: fixed;
-        }
+html, body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, teal, darkblue);
+    background-attachment: fixed;
+}
+
+.coolBijeet-edu {
+    font-size: 2.2em;          
+    font-weight: bolder;
+    margin: 0px;
+    background: linear-gradient(
+      90deg,
+      #ff3cac,
+      #ffba08,
+      #8be04e,
+      #00c2ff,
+      #8b5cf6,
+      #ff3cac
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-slide 6s linear infinite;
+    transition: 0.1s ease;
+  }
+  
+  @keyframes rainbow-slide {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+ 
+
+
+
 
 #header-thing{
-    text-align: center;
+text-align: center;
 }
 
 .white-text {
-        color: white;
+color: white;
 }
 
 .lesson-button, .lesson-button img{
@@ -29,24 +63,24 @@ border-radius: 25px;
 
 
 .lesson-button:hover{
- transform: scale(0.95);   
+transform: scale(0.95);   
 }
 
 .lesson-button:hover .hover-text {
-    opacity: 1;
+opacity: 1;
 }
 
 .lesson-button img{
-    transition: 0.5s ease;
-    height: 200px;
-    width: 200px;
+transition: 0.5s ease;
+height: 200px;
+width: 200px;
 }
 
 
 
 
 .lesson-button:hover img {
-    filter: grayscale(20%) brightness(70%);
+filter: grayscale(20%) brightness(70%);
 }
 
 .lesson-button:active{
@@ -56,13 +90,13 @@ transform: scale(0.9); /* makes button get smaller on click*/
 /* below is for the text on the img*/
 
 .hover-text{
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /*font-size: 30px;*/
-    font-weight: bolder;
-    color: rgb(255, 255, 255);
+position: absolute;
+top: 35%;
+left: 50%;
+transform: translate(-50%, -50%);
+/*font-size: 30px;*/
+font-weight: bolder;
+color: rgb(255, 255, 255);
 text-shadow: 3px 3px 10px floralwhite;
 opacity: 0;
 z-index: 3;
@@ -72,32 +106,83 @@ transition: 0.5s ease;
 /*below is tweaking text size and stuff for individual buttons*/
 
 #ten-mtd-text {
-  display: block;
+display: block;
 }
 
 /*other stuff now*/
 
 .home-button{
-    position: absolute;
-    top: 60px;
-    left: 15px;
-    cursor: pointer;
-    width: 50px !important; 
-    height: 50px !important;
-    transition: transform 0.1s ease;
-    display: flex;
-    background:none;
-    border: none;
-    z-index: 10000;
+position: absolute;
+top: 15px;
+left: 15px;
+cursor: pointer;
+width: 50px !important; 
+height: 50px !important;
+transition: transform 0.1s ease;
+display: flex;
+background:none;
+border: none;
+z-index: 10000;
 }
 
 .home-button img {
-    object-fit: cover;
+object-fit: cover;
 }
 
 .home-button:active {
-    transform: scale(0.9);
-    
+transform: scale(0.9);
+
 }
 
 
+#headeryay {
+    padding-top: 0px;
+    padding: 10px !important;
+    display: flex;
+    gap: 1vw; /* space between image and text */
+    justify-content: space-between;
+    text-align: center;
+    background-color: rgb(62, 74, 210);
+  }
+
+  .in-header {
+    padding: 0px;
+    margin: 0px;
+    width: fit-content;
+    height: fit-content;
+  }
+
+
+  .headerText {
+    margin: 0px !important;
+}
+
+  #headerWrapper {
+    margin: 0px;
+    padding: 0px;
+    min-width: max-content;  
+    min-height: max-content;
+  }
+
+  .inline-block-element {
+    display: inline-block;
+  }
+
+  .padding-between-text {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .text-button {
+    cursor: pointer;
+  }
+
+  .text-button:hover {
+    transform: scale(0.95);
+  }
+
+  .fake-h1 {        
+    font-size: 2em;            
+    font-weight: bold;
+    text-decoration: none;         
+  }
