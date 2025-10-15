@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" id="favicon" href="https://i.postimg.cc/GtSxXQYq/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+</head>
+<body>
+
+
+            <!--HEADER--><!--HEADER--><!--HEADER--><!--HEADER--><!--HEADER--><!--HEADER-->
+            <div id="headerWrapper">
+                <header id="headeryay">
+    
+                    <div class="in-header">
+    
+                        <h1 onclick="window.location.href='devconsole.html'" class="coolBijeet-edu headerText text-button fake-h1">Bijeet-EDU</h1>
+    
+                    </div>
+                    
+    
+                    <div class="in-header">
+                        <a href="settings.html" class="white-text headerText inline-block-element padding-between-text text-button fake-h1">Settings</a>
+                        <h1 onclick="openInaboutBlank()" title="about:blank hides your screen from securly classroom" class="white-text headerText inline-block-element padding-between-text text-button fake-h1">about:blank</h1>
+                    </div>                
+                        
+                    <script>
+                        function openInaboutBlank() {
+                            let win = window.open("about:blank", "_blank");
+                            win.document.write(`
+                            <iframe id="frame" src="devconsole.html"></iframe>
+                            <style>
+                                html, body {
+                                padding: 0px;
+                                margin: 0px;
+                                }
+    
+                                #frame {
+                                padding: 0px;
+                                margin: 0px;
+                                width: 100%;
+                                height: 100%;
+                                border: none;
+                                }
+                            </style>
+                            `);
+                        }
+                    </script>
+                    
+    
+                </header>
+                <!--END HEADER-->
+            </div>
+
+    
+        <h1 class="goodText" id="settingH1">Settings</h1>
+        <br>
+
+    <div id="main-settings">
+       
+                        
+                        <!--FAVICON-->
+                        <div id="faviconEditContainer">
+                            <h2 class="goodText">Change Favicon</h2>
+                            <h6 class="goodText">The favicon is the icon at the top of the page</h6>
+                            <h3 class="goodText lowMargin">Presets:</h3>
+                            <div id="favicon-button-container">
+                                <button onclick="googleClassroomFavicon()" id="googleClassroomPresetButton" class="styledButton">
+                                    Google classroom
+                                </button>
+                                <button onclick="googleDocsFavicon()" id="googleDocsFaviconButton" class="styledButton">
+                                    Google Docs
+                                </button>
+                            <button onclick="GmailFavicon()" id="gmailFaviconButton" class="styledButton">
+                                Gmail
+                            </button>
+
+                            <button onclick="googleDriveFavicon()" id="driveFaviconButton" class="styledButton">
+                                Google Drive
+                            </button>
+
+                        </div>
+
+                        <hr class="seperator">
+                        <!--AUTO ABOUT:BLANK-->
+                        <br>
+                        <h2 class="goodText noMargin">Auto about:blank</h2>
+                        <h6 class="goodText">After the password is entered, this automaticly opens in an about:blank</h6>
+                        <br>
+                        <input type="checkbox" id="autoAboutBlankCheckbox" class="styledCheckbox">
+                        <br>
+                        <br>
+                        <hr class="seperator">
+                            <div id="securlyClassroomFixContainer">
+                                <h2 class="goodText">Blocked by Securly Classroom?</h2>
+                                <h4 class="goodText">Follow Instructions Below </h4>
+                                <br>
+                                <p class="goodText">1. Click the button below to download an html file</p>
+                                <button style="height: 5vh; width: 10vw;" onclick="downloadHTML()">Download</button>
+                                <br>
+                                <br>
+                                <p class="goodText">2. Click it to open it; you're old progress on games will not be synced to this new file, but it will save anything you do in the file</p>
+                                <p class="goodText" style="font-size: 80%;">Note: On Securly Classroom your screen will show up as blank. Some teachers (like Mrs. Shortay) find that suspicuis so be mindful about what teacher you use this with</p>
+                                <br>
+                                <hr class="seperator">
+                                <br>
+                                <br>
+                                <h3 class="goodText">Shout out to Mrs. Shortay for being a great teacher!</h3>
+                            </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+
+
+        </div>
+
+    </div>
+    <script src="https://bijeet-d.github.io/bijeet-edu.github.io/scripts/settings.js"></script>
+</body>
+</html>
