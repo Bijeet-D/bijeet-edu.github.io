@@ -8,10 +8,6 @@ html, body {
     background-attachment: fixed;
 }
 
-#lesson-button-container {
-  display: flex;
-  justify-content: center; 
-}
 
 .coolBijeet-edu {
     font-size: 2.2em;          
