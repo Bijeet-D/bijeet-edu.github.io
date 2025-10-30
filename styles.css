@@ -6,6 +6,7 @@ html, body {
     padding: 0;
     background: linear-gradient(to bottom right, teal, darkblue);
     background-attachment: fixed;
+    text-align: center;
 }
 
 
