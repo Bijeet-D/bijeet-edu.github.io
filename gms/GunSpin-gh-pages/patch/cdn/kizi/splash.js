@@ -7,7 +7,7 @@ console.l0g= console.log;
  * Build at 30-01-2019
  */
 
-function addScript(a, b, c) {
+/*function addScript(a, b, c) {
     var d = document.createElement("script");
     d.setAttribute("src", a + "?v=" + b),
     "function" == typeof c && (d.onload = c),
@@ -4443,4 +4443,4 @@ var GA;
         a.createUniqueId = b,
         a.createUniqueUserId = c
     }(a.Utils || (a.Utils = {}))
-}(GA || (GA = {}));
+}(GA || (GA = {})); */
