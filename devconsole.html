@@ -120,10 +120,20 @@
             }
         </style>
         <script>
+             const anouncementText = document.getElementById("announcement-p").textContent
+
+            if(localStorage.getItem("anouncementCleared") === anouncementText) {
+                closeAnnouncement()
+            }
+
+            //close function
           function closeAnnouncement()   {
+        
             document.getElementById("announcement-div-container").style.display = 'none'
-              
+            localStorage.setItem("anouncementCleared", anouncementText)
           }
+
+
         </script>
     
 
