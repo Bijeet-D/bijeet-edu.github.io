@@ -62,7 +62,68 @@
             <!--END HEADER-->
         </div>
 
-    
+    <div id="announcement-div-container">
+            <button id="close-announcement" class="stripped" onclick="closeAnnouncement()">X</button>
+            <p id="announcement-p" class="stripped">🚨SRRY, I was testing new concepts to add better games(like kour.io and slither.io) so their was no update this weekend🚨</p>
+        </div>
+        <style>
+            #announcement-div-container {
+                display: flex;
+                width: 100vw;
+                background-color: yellow;
+                height: 2.5rem;
+                text-align: center;
+                justify-content: center;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                padding: 0px;
+                position: fixed;
+                align-items: center;
+                z-index: 99;
+            }
+
+            #close-announcement {
+                position: absolute;
+                background-color: rgb(219, 209, 77);
+                border: 0px;
+                width: 2em;
+                height: 2em;
+                border-radius: 3px;
+                /*top: 0.5em;*/
+                right: 0.5em;
+                cursor: pointer;
+                z-index: 101;
+            }
+
+            #close-announcement:hover {
+                background-color: rgb(140, 133, 0);
+            }
+
+            .stripped {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #announcement-p {
+                z-index: 100;
+                animation: text-scroll 15s linear infinite;
+            }
+
+            @keyframes text-scroll{
+                0% {
+                    transform: translateX(100vw);
+                }
+                100% {
+                    transform: translateX(-100vw);
+                }
+            }
+        </style>
+        <script>
+          function closeAnnouncement()   {
+            document.getElementById("announcement-div-container").style.display = 'none'
+          }
+        </script>
     
 
         <h1 id="header-thing" class="white-text">Fun intuitive learning reasources</h1>
