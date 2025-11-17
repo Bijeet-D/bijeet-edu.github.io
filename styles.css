@@ -6,11 +6,7 @@ html, body {
     padding: 0;
     background: linear-gradient(to bottom right, teal, darkblue);
     background-attachment: fixed;
-}
-
-
-#lesson-button-container {
-     text-align: center;
+    text-align: center;
 }
 
 .coolBijeet-edu {
@@ -190,4 +186,22 @@ transform: scale(0.9);
     font-size: 2em;            
     font-weight: bold;
     text-decoration: none;         
+  }
+
+  #SearchGamesInput {
+    height: 3vw;
+    width: 80vw;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5vw;
+    color: rgb(255, 255, 255);
+    border-width: 3px;
+    border-color: black;
+    background-color: #3353bc;
+    text-align: center;
+    border: 0px;
+  }
+
+  #SearchGamesInput::placeholder {
+    color: rgb(207, 239, 255); 
+    opacity: 1; 
   }
