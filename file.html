@@ -1,56 +1,150 @@
-  <!DOCTYPE html>
-<html>
-    <head>
-      <script>
-if (window.top === window.self) {
-            window.location.href = "./index.html" // LEARNING IF NEW REPO
-        }
-  </script>
-<title>Hello fellow inspect element/view-source: users!</title>
-<link rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game loader</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!--Jquery-->
+
 </head>
 <body>
-    
-<h1 id="testing"></h1>
-<iframe id="funfunfun"></iframe>
-<a class="home-button" id="home_console" href="devconsole.html">
-<img src="https://i.postimg.cc/Bvq9hRJw/New-Piskel.png">
-</a>
+ 
+    <div id="headerWrapper">
+        <header id="headeryay">
+
+            <div class="in-header">
+
+                <h1 onclick="window.location.href='devconsole.html'" class="coolBijeet-edu headerText text-button fake-h1">Bijeet-EDU</h1>
+
+            </div>
+            
+
+            <div class="in-header">
+                <a href="settings.html" class="white-text headerText inline-block-element padding-between-text text-button fake-h1">Settings</a>
+                <h1 onclick="openInaboutBlank()" title="about:blank hides your screen from securly clasroom or similar" class="white-text headerText inline-block-element padding-between-text text-button fake-h1">about:blank</h1>
+            </div>                
+                
+            <script>
+                function openInaboutBlank() {
+                    let win = window.open("about:blank", "_blank");
+                    win.document.write(`
+                    <iframe id="frame" src="devconsole.html"></iframe>
+                    <style>
+                        html, body {
+                        padding: 0px;
+                        margin: 0px;
+                        }
+
+                        #frame {
+                        padding: 0px;
+                        margin: 0px;
+                        width: 100%;
+                        height: 100%;
+                        border: none;
+                        }
+                    </style>
+                    `);
+                }
+            </script>
+            
+
+        </header>
+        <!--END HEADER-->
+    </div>
+     <!--END DIV-->
+     <div id="wrapperInGeneral">
+    <div id="frameWrapper" style="display: flex; justify-content: center;">
+        <iframe id="gameFrame" src="" allowfullscreen></iframe>
+    </div>
+
+    <div id="bottomBar">
+        <h1 style="color: rgb(189, 255, 254); margin: 0px;">2025 Bijeet-EDU — v1.3</h1>
+        <img src="https://i.postimg.cc/4yby8m77/image-removebg-preview-(1).png" id="fullscreen" onclick="fullscreen()" style="cursor: pointer;">
+        </div>
+
+</div>
+
+
 <style>
 
-   html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: 100% !important;
-    overflow: hidden !important;
+#bottomBar img{
+    filter: invert(1);
 }
 
-    #funfunfun {
-        position: absolute !important;
-        top: 0px !important;
-        width: 100vw !important;
-        height:100vh !important;
-        border: none !important;
-    }
-</style>
-  <!--<script src="https://bijeet-d.github.io/bijeet-edu.github.io/scripts/modified-hide.js">-->
-  <script src="https://bijeet-d.github.io/bijeet-edu.github.io/scripts/hide.js"></script>
-<script>
-    
-const game =localStorage.getItem("gms") //get game that is selected
-document.getElementById("funfunfun").src = game //iframe source is that game
-  if (game == "Lesson-6.html") {
-    console.log("circle")
-  } else {
-    
-  }
-localStorage.removeItem("gms");
-/*                                    *\
-//===================================\\
-\\===================================//
-\*                                     */ 
+#bottomBar {
+    background-color: rgb(0, 32, 148); 
+    height: 11vh; position: relative; 
+    gap: 20px; text-align: center; 
+    display: flex; align-items: center;
+     justify-content: center; 
+     border: 3px solid black;
+}
 
-  
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; 
+}
+
+
+    #gameFrame {
+  width: 100vw; 
+  border: 0px;
+  height: 80vh;
+        
+    }
+
+    #fullscreen{
+        height: 3em;
+        width: 3em;
+        
+        position: absolute;
+        right: 0.5em;
+        
+        
+    }
+
+
+</style>
+
+<script>
+const game = localStorage.getItem("gms");
+const iframe = getElement("gameFrame");
+
+function getElement(id) {
+
+    return document.getElementById(id)
+}
+
+
+
+
+
+
+
+function fullscreen() {
+
+
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { // Firefox
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { // IE/Edge
+            iframe.msRequestFullscreen();
+        } else {
+            alert("Fullscreen is not supported by this browser.");
+        }
+}
+
+getElement("gameFrame").src = game
+
 </script>
+
 </body>
 </html>
