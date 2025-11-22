@@ -16,7 +16,7 @@ document.querySelectorAll(".lesson-button").forEach(function(button) {
 
 // change placeholder to indicate amount of games
 
-searchbar.placeholder = "Search Games (" + gameButtonIds.length - 1 + ")"
+searchbar.placeholder = "Search Games (" + (gameButtonIds.length - 1) + ")"
 
 
 function search() {
