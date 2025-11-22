@@ -4,7 +4,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, teal, darkblue);
+   background: linear-gradient(to bottom right, rgb(0, 34, 186), rgb(0, 0, 0));
     background-attachment: fixed;
 
 }
