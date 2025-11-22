@@ -2,6 +2,9 @@ let gameButtonIds = [];
 let gameButtonText = [];
 let searchbar = document.getElementById("SearchGamesInput");
 
+
+//add id + text to arrays
+
 document.querySelectorAll(".lesson-button").forEach(function(button) {
     let id = button.id;
     gameButtonIds.push(id);
@@ -10,6 +13,11 @@ document.querySelectorAll(".lesson-button").forEach(function(button) {
     let buttonText = div.querySelector(".hover-text").textContent;
     gameButtonText.push(buttonText);
 });
+
+// change placeholder to indicate amount of games
+
+searchbar.placeholder = "Search Games (" + gameButtonIds - 1 + ")"
+
 
 function search() {
     let input = searchbar.value.toLowerCase();
