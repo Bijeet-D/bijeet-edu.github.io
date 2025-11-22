@@ -1,0 +1,36 @@
+{
+  "project_info": {
+    "project_number": "480659433590",
+    "firebase_url": "https://webgltest-17af1.firebaseio.com",
+    "project_id": "webgltest-17af1"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480659433590:ios:1ca2dbcd026e7f9da0d757",
+        "android_client_info": {
+          "package_name": "com.tallteam.citychase"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoMku-L2YLxb_G0HOqzU-l6M8v0HLVVPs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480659433590-l5p8a1j4mrosprt53alcgegei6p8uijs.apps.googleusercontent.com"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}

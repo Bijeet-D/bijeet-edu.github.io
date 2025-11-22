@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <script src="scripts/constants.js"></script>
+    <title>Smash Karts - Discord Login</title>
+</head>
+<body>
+<script>
+    function getCookie(name)
+    {
+        return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+    }
+
+    function redirectToDiscordOAuth(urlParams)
+    {
+        //calc state param
+        const csrfToken = crypto.randomUUID();
+        document.cookie = `csrf_token=${csrfToken}; path=/; secure; samesite=lax`;
+
+        const state = {
+            csrf: csrfToken,
+            origin: urlParams.get("origin"),
+        };
+
+        const stateStr = btoa(JSON.stringify(state));
+
+        const scope = urlParams.get("scope");
+
+        window.location.href = `https://discord.com/oauth2/authorize?client_id=${discordClientId}&redirect_uri=${discordLoginRedirectUrl}&response_type=code&scope=${scope}&state=${stateStr}`;
+    }
+
+    function handleDiscordOAuthResult(urlParams)
+    {
+        const code = urlParams.get("code");
+
+        if (!code)
+        {
+            console.error("Missing code param");
+        }
+        else
+        {
+            // Extract the state param passed from the game
+            const stateB64 = urlParams.get("state");
+            const state = stateB64 ? JSON.parse(atob(stateB64)) : null;
+
+            if(!state)
+            {
+                console.error("Missing state param");
+            }
+            else
+            {
+                const csrfToken = getCookie('csrf_token');
+
+                if (!csrfToken || state.csrf !== csrfToken)
+                {
+                    console.error('CSRF token mismatch!');
+                }
+                else
+                {
+                    // Send discord login code back to opener window
+                    window.opener.postMessage({discordLoginCode: code}, state.origin);
+                }
+            }
+
+        }
+
+        window.close();
+    }
+
+    async function main()
+    {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const origin = urlParams.get("origin");
+
+        if(origin)
+        {
+            //intial window open => redirect to discord oauth
+            redirectToDiscordOAuth(urlParams);
+        }
+        else
+        {
+            //after returning from discord oauth => parse params and send code back to our own auth handling
+            handleDiscordOAuthResult(urlParams);
+        }
+    }
+
+    main();
+</script>
+</body>
+</html>
