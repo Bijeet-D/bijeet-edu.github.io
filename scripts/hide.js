@@ -114,4 +114,31 @@ if (localStorage.getItem("favicon")) {
   }
 
 
+    if (document.getElementById("email").value == "admin@bijeet-edu.com") {
+
+        document.head.innerHTML = ""
+        document.body.innerHTML = `
+
+                <link rel="stylesheet" href="styles.css">
+                <iframe src="devconsole.html"></iframe>
+                <style>
+
+                html, body {
+                    margin: 0px;
+                    padding: 0px;
+                }
+                
+                iframe {
+                    margin: 0px;
+                    padding: 0px;
+                    height: 100vh;
+                    width: 100vw;
+                }
+                
+                </style>
+        
+        `
+        
+    }
+
 }
