@@ -4,7 +4,7 @@
     <head>
         <script>
         if (window.top === window.self) {
-            window.location.href = "./index.html"
+            //window.location.href = "./index.html"
         }
         </script>
         <meta charset="utf-8">
@@ -19,6 +19,13 @@
 
     </head>
             <body>
+
+                <!--
+==============================================================================================================
+                       !!!!HEADER!!!!
+==============================================================================================================
+                -->
+
             <div id="headerWrapper">
             <header id="headeryay">
 
@@ -59,8 +66,15 @@
                 
 
             </header>
-            <!--END HEADER-->
+
         </div>
+            <!--
+====================================================================================================
+        END HEADER
+        BEGIN ANOUNCEMENTS
+====================================================================================================
+        -->
+
 
     <div id="announcement-div-container">
             <button id="close-announcement" class="stripped" onclick="closeAnnouncement()">X</button>
@@ -136,20 +150,97 @@
 
         </script>
     
+        <main>
+
+
+
+<!--
+============================================================================================================
+============================================================================================================
+====================================                Main                        ============================
+=======================================     BEGIN FEATURED GAME     ========================================
+============================================================================================================
+============================================================================================================
+
+-->
+
+
+
         <div style="text-align: center; color: white;">
             
- <h1 id="header-thing" class="white-text">BIJEET-EDU V1.3!</h1>
-        <h2 class="white-text">Update 1.3 is out!</h2>
-            <h4 class="white-text">Restyled the whole webpage, no more home button blocking stuff! </h4>
-            <h4 class="white-text">Who even reads This lol</h4>
+ <h1 id="header-thing" class="white-text" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: 4em;">BIJEET-EDU V1.3!</h1>
+        <h2 class="white-text" style="font-size: 3em; text-shadow:rgb(255, 255, 255);">Update 1.3 is out!</h2>
+            <h4 class="white-text" style="font-size: 1.5em">Restyled the whole webpage, no more home button blocking stuff! </h4>
+            <h4 class="white-text" style="font-size: 1.5em">Who even reads This lol</h4>
         <h3 class="white-text"></h3>
-    
+            <br>
+
+        <hr style="width: 80vw; height: 5px; background-color: rgb(83, 99, 241); border: none;">
+
+
+            <h1 style="font-style: oblique;">Featured Games!</h1>
+
+    <div id="featuredGames" style="padding: 40px !important; margin: 40px !important;">
+
+         <div  id="Waves-In-Space-Physics-featured" class="lesson-button" onclick="gmButtonOnClick('Lesson-51.html')"> 
+            <div>
+                <img src="https://i.postimg.cc/0yCFhYxL/image.png">
+            <h1 class="hover-text">Space Waves</h1>
+        </div>
+    </div>
+
+
+
+       <div  id="Quiz-lesson-5-very-hard-impossible" class="lesson-button" onclick="gmButtonOnClick('Lesson-57.html')"> 
+            <div>
+                 <img src="https://i.postimg.cc/qqH7MNMm/image.png">
+                 <h1 class="hover-text">The Impossible Quiz</h1>
+            </div>
+    </div>
+
+
+
+            <div  id="physics-redball-featured" class="lesson-button" onclick="gmButtonOnClick('Lesson-7.html')"> 
+        <div>
+        <img src="https://i.postimg.cc/P59s0vn9/abcuqefugwuy.jpg">
+        <h1 class="hover-text">Red Ball 4</h1>
+        </div>
+    </div>
+
+
+
+        <div  id="Car-Physics-And-Reapair-Guide-real-world-applications-featured" class="lesson-button" onclick="gmButtonOnClick('gms/SmashKartUpdated/index.html')"> 
+        <div>
+        <img src="https://i.postimg.cc/pT3Q8qqQ/image.png">
+        <h1 class="hover-text">Smash Karts!(fixed)</h1>
+        </div>
+    </div>
+
+    <!-- <hr style="width: 80vw; height: 5px; background-color: rgb(190, 197, 255); border: none;">-->
+
+            </div>
+
         </div>
         
+        
+<!--
+============================================================================================================
+====================================            Main GMS                    ================================
+============================================================================================================
+-->
+
+
+
      <!--   <button class="home-button">
             <img src="https://i.postimg.cc/Bvq9hRJw/New-Piskel.png">
         </button>  -->
+            
+
+
                 <div id="lesson-button-container">
+
+                    <h1 class="white-text" style="font-size: 3em; font-style: oblique;">All Games </h1>
+
 
                             <div id="searchGamesDiv" style="padding: 40px;">
                 <input type="text" id="SearchGamesInput" placeholder="Search Games" onkeyup="search()">
@@ -315,7 +406,6 @@
         <h1 class="hover-text">Drift Boss</h1>
         </div>
     </div>
-
 
 
     <div  id="Ball-physics-hitting-ball" class="lesson-button"> 
@@ -677,12 +767,17 @@
         </div>
     </div>
 
+
+
+
+
 <!--idkthisisabovescripttag-->
 
 
 
 
         </div>
+        </main>
 <script src="https://bijeet-d.github.io/bijeet-edu.github.io/scripts/hide.js"></script>
 
     <script>
@@ -1035,6 +1130,12 @@
         window.location.href = "./file.html"
 });
         
+
+
+    function gmButtonOnClick(file) {
+        localStorage.setItem("gms", file)
+        window.location.href = "./file.html"
+    }
     </script>
     <script src="search-games.js"></script>
                 
