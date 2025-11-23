@@ -21,12 +21,15 @@ searchbar.placeholder = "Search Games (" + (gameButtonIds.length - 1) + ")"
 
 function search() {
     let input = searchbar.value.toLowerCase();
-
+    
+    console.log(gameButtonIds)
+    console.log(gameButtonText)
+    
     gameButtonText.forEach(function(gameName, i) {
         let gameLower = gameName.toLowerCase(); 
         let buttonId = gameButtonIds[i];
         let button = document.getElementById(buttonId);
-
+        
         if (gameLower.includes(input)) {
             button.style.display = "inline-block";
         } else {
