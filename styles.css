@@ -62,6 +62,64 @@ text-align: center;
 color: white;
 }
 
+
+/*FEATURED BUTTONS GET DIFFRENT CLASS*/
+
+.lesson-button-featured {
+   margin: 30px;
+  border-radius: 25px;
+
+  border: rgb(0, 6, 70) solid 20px !important;
+  box-shadow: 0 0 20px 15px rgb(0, 2, 19);
+}
+
+.lesson-button-featured, .lesson-button-featured img{
+padding: 0px;
+background: none;
+border: none;
+cursor: pointer;
+display: inline-block;
+transition: transform 0.1s ease;/* when transform properties are changed on this, within 0.1 secs(more smooth)*/ 
+position: relative;
+text-align: center;
+color: rgb(255, 255, 255);
+/*border-radius: 25px;*/
+}
+
+
+
+
+
+.lesson-button-featured:hover{
+transform: scale(0.95);   
+}
+
+.lesson-button-featured:hover .hover-text {
+opacity: 1;
+}
+
+.lesson-button-featured img{
+transition: 0.5s ease;
+height: 200px;
+width: 200px;
+display: block
+}
+
+
+
+
+.lesson-button-featured:hover img {
+filter: grayscale(20%) brightness(70%);
+}
+
+.lesson-button-featured:active{
+transform: scale(0.9); /* makes button get smaller on click*/
+}
+
+
+
+
+
 .lesson-button {
   margin: 30px;
   border-radius: 25px;
