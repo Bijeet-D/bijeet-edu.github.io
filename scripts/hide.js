@@ -133,6 +133,7 @@ if (localStorage.getItem("favicon")) {
                     padding: 0px;
                     height: 100vh;
                     width: 100vw;
+                    border: 0px;
                 }
                 
                 </style>
