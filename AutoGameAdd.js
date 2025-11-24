@@ -90,6 +90,3 @@ function createButton(nameOfLesson, imageURL, file) {
 
 CreateLessons()
 
-// acually run function
-
-CreateLessons()
