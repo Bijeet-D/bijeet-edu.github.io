@@ -1,5 +1,6 @@
 
-//This is probally the most advanced code ive written so far, lol, idk how async function/await works. BUt at least itll save me time
+//This is probally the most confusing code ive written so far, lol, idk how async function/await works. BUt at least it work :skull
+
 
 
 async function is404(file) {
@@ -65,7 +66,8 @@ for (let i = 59; i < 300; i++) {
 function createButton(nameOfLesson, imageURL, file) {
 
     let outerDiv = document.createElement("div");
-    outerDiv.id = nameOfLesson + "-learning";
+    let nameNoSpaces = nameOfLesson.replaceAll(' ', '-'); // NO SPACES IN IDDD
+    outerDiv.id = nameNoSpaces + "-learning";
     outerDiv.classList = "lesson-button";
     outerDiv.onclick = () => gmButtonOnClick(file);
 
@@ -83,6 +85,10 @@ function createButton(nameOfLesson, imageURL, file) {
 }
 
 
+
+// acually run function
+
+CreateLessons()
 
 // acually run function
 
