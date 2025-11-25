@@ -1,5 +1,5 @@
 
-//This is probally the most confusing code ive written so far, lol, idk how async function/await works. BUt at least it work :skull
+//This is probally the most confusing code ive written so far, lol, idk how async function/await works. BUt at least it work 
 
 
 
