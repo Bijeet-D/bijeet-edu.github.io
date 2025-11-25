@@ -1,40 +1,41 @@
-let gameButtonIds = [];
-let gameButtonText = [];
-let searchbar = document.getElementById("SearchGamesInput");
+async function main() {
 
+    let gameButtonIds = [];
+    let gameButtonText = [];
+    let searchbar = document.getElementById("SearchGamesInput");
 
-//add id + text to arrays
+    await CreateLessons(); // waits for all buttons to be created
 
-document.querySelectorAll(".lesson-button").forEach(function(button) {
-    let id = button.id;
-    gameButtonIds.push(id);
+    // add id + text to arrays
+    document.querySelectorAll(".lesson-button").forEach(function(button) {
+        let id = button.id;
+        gameButtonIds.push(id);
 
-    let div = button.querySelector("div");
-    let buttonText = div.querySelector(".hover-text").textContent;
-    gameButtonText.push(buttonText);
-});
-
-// change placeholder to indicate amount of games
-
-searchbar.placeholder = "Search Games (" + (gameButtonIds.length - 1) + ")"
-
-
-function search() {
-    let input = searchbar.value.toLowerCase();
-    
-    console.log(gameButtonIds)
-    console.log(gameButtonText)
-    
-    gameButtonText.forEach(function(gameName, i) {
-        let gameLower = gameName.toLowerCase(); 
-        let buttonId = gameButtonIds[i];
-        let button = document.getElementById(buttonId);
-        
-        if (gameLower.includes(input)) {
-            button.style.display = "inline-block";
-        } else {
-            button.style.display = "none";
-        }
+        let div = button.querySelector("div");
+        let buttonText = div.querySelector(".hover-text").textContent;
+        gameButtonText.push(buttonText);
     });
+
+    // change placeholder
+    searchbar.placeholder = "Search Games (" + (gameButtonIds.length - 1) + ")";
+
+    // local search function
+    function search() {
+        let input = searchbar.value.toLowerCase();
+
+        gameButtonText.forEach(function(gameName, i) {
+            let gameLower = gameName.toLowerCase();
+            let buttonId = gameButtonIds[i];
+            let button = document.getElementById(buttonId);
+
+            button.style.display = gameLower.includes(input)
+                ? "inline-block"
+                : "none";
+        });
+    }
+
+    // make search available globally
+    window.search = search;
 }
 
+main();
