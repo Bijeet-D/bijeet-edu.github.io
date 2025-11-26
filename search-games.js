@@ -1,10 +1,12 @@
 async function main() {
+        await CreateLessons(); // waits for all buttons to be created
 
+
+    
     let gameButtonIds = [];
     let gameButtonText = [];
     let searchbar = document.getElementById("SearchGamesInput");
 
-    await CreateLessons(); // waits for all buttons to be created
 
     // add id + text to arrays
     document.querySelectorAll(".lesson-button").forEach(function(button) {
