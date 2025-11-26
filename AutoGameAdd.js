@@ -1,6 +1,6 @@
 
 //This is probally the most confusing code ive written so far, lol, idk how async function/await works. BUt at least it work 
-
+let timesRan = 0
 
 
 async function is404(file) {
@@ -36,6 +36,7 @@ async function is404(file) {
 
 async function CreateLessons() {
     console.log("createLesson Ran")
+        if (timesRan == 0) {
 for (let i = 59; i < 300; i++) {
 
     const IS404 = await is404("Lesson-" + i + ".html")
@@ -59,7 +60,9 @@ for (let i = 59; i < 300; i++) {
 
     
 }
-
+        
+timesRan = timesRan+1
+        }    
 }
 
 
