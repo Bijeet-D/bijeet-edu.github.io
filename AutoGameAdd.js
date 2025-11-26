@@ -4,7 +4,7 @@
 
 
 async function is404(file) {
-
+        console.log("checked if its 404")
     try {
 
     const res = await fetch(file)
@@ -35,7 +35,7 @@ async function is404(file) {
 
 
 async function CreateLessons() {
-    
+    console.log("createLesson Ran")
 for (let i = 59; i < 300; i++) {
 
     const IS404 = await is404("Lesson-" + i + ".html")
@@ -82,6 +82,7 @@ function createButton(nameOfLesson, imageURL, file) {
 
     document.getElementById("lesson-button-container").appendChild(outerDiv);
 
+    console.log("created button " + nameOfLesson)
 }
 
 
