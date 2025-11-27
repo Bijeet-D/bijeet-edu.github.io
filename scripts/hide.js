@@ -120,7 +120,7 @@ if (localStorage.getItem("favicon")) {
         document.body.innerHTML = `
 
                 <link rel="stylesheet" href="styles.css">
-                <link id="favicon" rel="icon" href="/favicon.ico>
+                <link id="favicon" rel="icon">
                 <iframe src="devconsole.html"></iframe>
                 <style>
 
