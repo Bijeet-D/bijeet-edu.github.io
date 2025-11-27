@@ -120,6 +120,7 @@ if (localStorage.getItem("favicon")) {
         document.body.innerHTML = `
 
                 <link rel="stylesheet" href="styles.css">
+                <link id="favicon" rel="icon" href="/favicon.ico>
                 <iframe src="devconsole.html"></iframe>
                 <style>
 
@@ -141,7 +142,13 @@ if (localStorage.getItem("favicon")) {
                 <script>
                 
                 if (localStorage.getItem("favicon")) {
+                
   const favicon = localStorage.getItem("favicon")
+const GCfavicon = "https://www.gstatic.com/classroom/ic_product_classroom_144.png"
+const GDfavicon = "images/GDfavicon.png"
+const GmailFaviconImg = "images/GmailFavicon.png"
+const GDriveFavicon = "images/GoogleDriveFavicon.png"
+
   
   if (favicon === "GoogleClassroom") { // google classroom
     googleClassroomFavicon()
@@ -174,6 +181,7 @@ if (localStorage.getItem("favicon")) {
 
 
 
+let faviconElement = document.getElementById("favicon")
 
 
 
