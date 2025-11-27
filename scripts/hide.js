@@ -137,6 +137,73 @@ if (localStorage.getItem("favicon")) {
                 }
                 
                 </style>
+
+                <script>
+                
+                if (localStorage.getItem("favicon")) {
+  const favicon = localStorage.getItem("favicon")
+  
+  if (favicon === "GoogleClassroom") { // google classroom
+    googleClassroomFavicon()
+  } else if (favicon === "GoogleDocs") {
+    googleDocsFavicon()
+  } else if (favicon === "Gmail") {
+    GmailFavicon()
+  } else if (favicon === "GoogleDrive") {
+    googleDriveFavicon()
+  } 
+
+
+
+
+}
+
+
+
+//kdi ===========
+
+
+
+
+
+// INTERACTIVE STUFF JS
+
+
+ 
+  //END OF INTERACTIVE JS STUFF
+
+
+
+
+
+
+
+  function googleClassroomFavicon() {
+    faviconElement.setAttribute("href", GCfavicon);
+    document.title = "Home";
+    localStorage.setItem("favicon", "GoogleClassroom");
+  }
+
+  function googleDocsFavicon() {
+    faviconElement.setAttribute("href", GDfavicon);
+    document.title = "Google Docs";
+    localStorage.setItem("favicon", "GoogleDocs");
+  }
+  
+
+  function GmailFavicon() {
+    faviconElement.setAttribute("href", GmailFaviconImg);
+    document.title = "Inbox";
+    localStorage.setItem("favicon", "Gmail");
+  }
+  
+  function googleDriveFavicon() {
+    faviconElement.setAttribute("href", GDriveFavicon);
+    document.title = "Home - Google Drive";
+    localStorage.setItem("favicon", "GoogleDrive");
+  }
+                
+                </script>
         
         `
         
