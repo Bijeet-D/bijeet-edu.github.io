@@ -116,7 +116,7 @@ if (localStorage.getItem("favicon")) {
 
     if (document.getElementById("email").value == "admin@bijeet-edu.com") {
 
-        document.head.innerHTML = ""
+        document.head.innerHTML = `<link id="favicon" rel="icon" type="image/png" href="">`
         document.body.innerHTML = `
 
                 <link rel="stylesheet" href="styles.css">
@@ -140,15 +140,18 @@ if (localStorage.getItem("favicon")) {
                 </style>
 
                 <script>
+
+  const favicon = localStorage.getItem("favicon");
+const GCfavicon = "https://www.gstatic.com/classroom/ic_product_classroom_144.png";
+const GDfavicon = "images/GDfavicon.png";
+const GmailFaviconImg = "images/GmailFavicon.png";
+const GDriveFavicon = "images/GoogleDriveFavicon.png";
+let faviconElement = document.getElementById("favicon");
+
                 
                 if (localStorage.getItem("favicon")) {
                 
-  const favicon = localStorage.getItem("favicon")
-const GCfavicon = "https://www.gstatic.com/classroom/ic_product_classroom_144.png"
-const GDfavicon = "images/GDfavicon.png"
-const GmailFaviconImg = "images/GmailFavicon.png"
-const GDriveFavicon = "images/GoogleDriveFavicon.png"
-let faviconElement = document.getElementById("favicon")
+
   
   if (favicon === "GoogleClassroom") { // google classroom
     googleClassroomFavicon()
@@ -218,3 +221,8 @@ let faviconElement = document.getElementById("favicon")
     }
 
 }
+
+
+
+
+
