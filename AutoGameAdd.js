@@ -1,4 +1,3 @@
-
 //This is probally the most confusing code ive written so far, lol, idk how async function/await works. BUt at least it work 
 
 
@@ -37,11 +36,8 @@ async function CreateLessons() {
     console.log("createLesson Ran")
 for (let i = 59; i < 300; i++) {
 
-    const IS404 = await is404("Lesson-" + i + ".html")
     
-  if (IS404) {
-    break
-  } else if (!IS404) {
+    try {
 
     const LessonFetch = await fetch("Lesson-" + i + ".html")
     const htmlOfLesson = await LessonFetch.text()
@@ -54,7 +50,10 @@ for (let i = 59; i < 300; i++) {
 
     createButton(name, image, fileOfLesson)
 
-  }
+    } catch (e) {
+        console.log("Error in CreateLessons: " + e)
+        break;
+    }
 
     
 }
@@ -91,4 +90,3 @@ function createButton(nameOfLesson, imageURL, file) {
 // acually run function
 //acually NO, run it in searchgames.js so it acually searches games added with this script
 //CreateLessons()
-
