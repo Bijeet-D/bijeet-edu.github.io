@@ -1,8 +1,6 @@
-This is my own custom exploit. It puts iframes inside a blob: url. Most blockers cant do anything about blob: urls, so the website inside the iframe stays unblocked
+IDK if puting the frames in a blob: does anything, becuase securly is kinda wierd with intercepting iframes
 
-Note: this doesn't work with all blockers.
-
-List of blockers this works with
+List of blockers this kinda works with
 
 - Securly
 
