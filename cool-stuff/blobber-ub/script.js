@@ -52,6 +52,7 @@ function displayLaunch() {
     if (!errorThrown) {
     document.getElementById("openBlob").style.display = 'inline-block'
     document.getElementById("🔃🔃🔃🔃").textContent = 'Loaded Game, Click Launch Game.'
+    document.getElementById("blockedMessage").style.display = 'block'
     }
 }
 
