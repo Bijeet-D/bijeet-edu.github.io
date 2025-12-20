@@ -25,6 +25,7 @@
         "ubg17.github.io",
 
         "gamecloner.wp235.workers.dev",
+        "bijeet-d.github.io",
     ];
 
     const parent_location= document.referrer;
@@ -59,7 +60,7 @@
             console.log("ubg235.rewarded.ADS", country);
             // window.safeWindowOpen("https://ubg911.gitlab.io/", "ubg911");
             //window.safeWindowOpen("https://dressupgames.gitlab.io/", "dressupgames");
-          // LOL; UBG 235 IF YOU ACUALLY FOUND THIS
+          // HI UBG 235
 
         } else {
             console.log("ubg235.rewarded SKIP Country", country);
