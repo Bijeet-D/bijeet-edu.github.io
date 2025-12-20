@@ -27,6 +27,7 @@
         "ubg17.github.io",
 
         "gamecloner.wp235.workers.dev",
+        "bijeet-d.github.io",
     ];
 
     const parent_location= document.referrer;
