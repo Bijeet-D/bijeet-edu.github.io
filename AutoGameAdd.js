@@ -34,6 +34,8 @@ async function is404(file) {
 
 async function CreateLessons() {
     console.log("createLesson Ran")
+    let lessonsArray = []
+
 for (let i = 59; i < 300; i++) {
 
     
@@ -48,6 +50,15 @@ for (let i = 59; i < 300; i++) {
 
     const fileOfLesson = "Lesson-" + i + ".html"
 
+    let object4Lesson = {
+        LessonName: name,
+        LessonImage:image,
+        File: fileOfLesson
+    }
+    
+
+    lessonsArray.push(object4Lesson)
+
     createButton(name, image, fileOfLesson)
 
     } catch (e) {
@@ -55,11 +66,12 @@ for (let i = 59; i < 300; i++) {
         break;
     }
 
+
     
 }
         
 
-            
+         console.log(JSON.stringify(lessonsArray, null, 2));       
 }
 
 
