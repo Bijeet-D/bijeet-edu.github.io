@@ -33,10 +33,14 @@ async function is404(file) {
 
 
 async function CreateLessons() {
-    console.log("createLesson Ran")
+    console.log("createLesson Ran");
+        
+let res = await (await fetch("reasources/games.json")).json(); res = res[res.length-1].File.split('-')[1].split('.')[0]; // peak🏔 line of code
+
+        
     let lessonsArray = []
 
-for (let i = 59; i < 300; i++) {
+for (let i = res; i < 300; i++) {
 
     
     try {
