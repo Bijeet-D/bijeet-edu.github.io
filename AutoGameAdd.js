@@ -40,7 +40,7 @@ let res = await (await fetch("reasources/games.json")).json(); res = res[res.len
         
     let lessonsArray = []
 
-for (let i = res; i < 300; i++) {
+for (let i = res+1; i < 300; i++) {
 
     
     try {
