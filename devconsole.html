@@ -1146,6 +1146,31 @@
     <script>
        // https://bijeet-d.github.io/bijeet-edu.github.io/BlumgiRocket-gh-pages/index.html
         createButton("Blumgi Rocket", "https://i.postimg.cc/Qxm6WJRB/image.png", "gms/BlumgiRocket-gh-pages/index.html")
+
+        //Create gms from games.json
+        
+async function createGamesFromJson() {
+
+async function fetchJson() {
+    let gameJson = await fetch("reasources/games.json");
+    const jsonText = await gameJson.json();
+    return jsonText;
+}
+
+
+let json = await fetchJson();
+
+json.forEach(game => {
+    
+    createButton(game.LessonName, game.LessonImage, game.File);
+
+});    
+
+}
+
+createGamesFromJson();
+
+        
     </script>
     </body>
 
