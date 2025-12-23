@@ -10,25 +10,5 @@ Dec. 2025 Note.
 
 I discovered that iframes embeded in iframes don't get blocked by securly. That is the main reason why this works.
 
-Later I may make a bigger embeding path so it may work for other blockers. The path i am thinking of is specified below;
+Later I may make a bigger embeding path so it may work for other blockers by confusing them.
 
-<iframe>
-   ↓
-   ↓
-<embed> 
-   ↓
-   ↓
-<object> -----------------------------------
-  ↓                                         |
-  ↓                                          |
-data: --- containing <iframe>                |
-  ↓                                            |
-  ↓                                            |    In shadow dom of some random custom tag (somthing like <z-wizwhuihdwq>)
-blob: -- containing <embed>                    |
-  ↓                                          |
-  ↓                                          |
-  <iframe> ---------------------------------|
-  
-
-
-  
