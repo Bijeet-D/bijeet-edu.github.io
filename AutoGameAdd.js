@@ -35,7 +35,7 @@ async function is404(file) {
 async function CreateLessons() {
     console.log("createLesson Ran");
         
-let res = await (await fetch("reasources/games.json")).json(); res = res[res.length-1].File.split('-')[1].split('.')[0]; // peak🏔 line of code
+let res = await (await fetch("reasources/games.json")).json(); res = Number(res[res.length-1].File.split('-')[1].split('.')[0]);// peak🏔 line of code (ok fine i kinda cheated)
 
         
     let lessonsArray = []
