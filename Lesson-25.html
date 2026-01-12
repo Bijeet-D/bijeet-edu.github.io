@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -10,7 +9,7 @@
 <html class="no-js">
   <!--<![endif]-->
   <head>
-    <base href="https://maddox05.github.io/basic-ruffle-player/html/dune/index.html">
+    <base href="https://db.duckmath.org/html/dune/">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="" />
@@ -18,14 +17,23 @@
 
     <title>ducky</title>
 
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/game.css" />
 
     <script src="//cdn2.unblocked-games-free.com/data/v2.js"></script>
   </head>
   <body style="background-color: #020032">
+    <div id="wrongRotation">
+      <img src="assets/img_480/rotate_screen.png" alt="" />
+    </div>
 
-
+    <div class="font_preload" style="opacity: 0">
+      <span style="font-family: 'baloo', normal"></span>
+    </div>
+    <div id="game">
       <script src="js/game.js"></script>
-  
+    </div>
+    <div id="ads"></div>
 
     <style>
       body,
