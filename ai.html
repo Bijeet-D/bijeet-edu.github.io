@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oceanic AI</title>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya Sans' rel='stylesheet'>
+</head>
+<body>
+    <h1>ChatGPT</h1>
+<main>
+    <div id="messages">
+
+<!--
+
+    <div class="outer-user-mesage-holder">
+        <div class="user-message-holder">
+            <p class="user-message-p">What is the meaning of life, chatGPT?</p>
+        </div>
+    </div>
+
+
+    <div class="outer-ai-mesage-holder">
+        <div class="ai-message-holder" style="display: block;">
+            <p class="ai-message-p">IDK im a clanker, how can I know?</p>
+        </div>
+        <img src="img/loadingSpinner2.gif">
+    </div>
+
+-->
+    </div>
+
+</main>
+
+<div style="margin-top: 5em;"></div>
+
+    <div id="user-input-holder">
+        <form onsubmit="sendMessage()">
+            <input type="text" id="user-input" placeholder="Ask ChatGPT anything">
+        </form>
+    </div>
+
+<style>
+
+    :root {
+        --chatBubleBg: rgba(80, 185, 255, 0.534);
+        --aiChatBubleBg: rgba(80, 185, 255, 0.534);
+        --mainTextColor: rgb(207, 240, 255);
+        --messageMaxWidth: 60%;
+        --userInputClor: rgb(158, 207, 228);
+        --chatBubbleBorderRaduis: 30px;
+        --userInputBg: rgba(72, 173, 196, 0.738);
+    }
+    
+
+    body {
+        background-color: rgba(0, 0, 0, 0.164);
+        color: var(--mainTextColor);
+    }
+
+    body::selection {
+        background-color: black;
+        color: aliceblue;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 3em;
+        color: rgb(240, 248, 255);
+    }
+
+
+    main {
+        display: flex;
+        justify-content: center;
+        font-family: 'Alegreya Sans';
+    }
+
+    #messages {
+        width: 70vw;
+        /*background-color: rgba(185, 222, 255, 0.763);*/
+        font-weight: bold;
+    }
+
+    .user-message-holder {
+        text-align: right;
+        width: fit-content;
+        max-width: var(--messageMaxWidth);
+        margin-right: 5vw;
+        margin-bottom: 2em;
+        padding: 0.2rem;
+        background-color: var(--chatBubleBg);
+        border-radius: var(--chatBubbleBorderRaduis);
+    }
+
+
+    .outer-user-mesage-holder {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .user-message-p {
+          overflow-wrap: break-word;
+        padding-left: 0.67rem; /*67 67 67 67 67 67 67 67*/
+        padding-right: 0.67rem;
+    }
+
+
+    /*AI message styling*/
+
+        .ai-message-holder {
+        text-align: left;
+        width: fit-content;
+        max-width: var(--messageMaxWidth);
+        margin-left: 5vw;
+        margin-bottom: 2em;
+        padding: 0.2rem;
+        background-color: var(--aiChatBubleBg) !important;
+        border-radius: var(--chatBubbleBorderRaduis);
+    }
+
+
+    .outer-ai-mesage-holder {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+
+    .outer-ai-mesage-holder img {
+        height: 2em;
+        width: 2em;
+    }
+
+    .ai-message-p {
+          overflow-wrap: break-word;
+        padding-left: 0.67rem; /*67 67 67 67 67 67 67 67*/
+        padding-right: 0.67rem;
+    }
+
+
+    /*END*/
+    #user-input-holder {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 1vh;
+        position: fixed;
+    }
+
+    #user-input {
+        background-color: var(--userInputBg);
+        width: 70vw;
+        height: 3em;
+        border-radius: 2em;
+        text-align: center;
+        font-size: large;
+        border: none;
+        color: var(--userInputClor);
+        font-weight: bolder;
+    }
+
+    #user-input::placeholder {
+        color: rgb(163, 199, 231);
+    }
+
+</style>
+
+<script>
+        if (!localStorage.getItem('puter.auth.token')) {
+            localStorage.setItem('puter.auth.token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0IjoiYXUiLCJ2IjoiMC4wLjAiLCJ1dSI6InVzemFDZnEyU3N5dmZvTzNmdk5KWnc9PSIsImF1IjoiaWRnL2ZEMDdVTkdhSk5sNXpXUGZhUT09IiwicyI6IkZZRVRVYU1EbDJRcnh3dTd5MlhMdEE9PSIsImlhdCI6MTc2Nzg0NTMxMn0.sgyZ_dDY5bEUMXBz1oSckUKmlX-fF2HyY1vQXXg1NkY');
+            console.log("Puter Auth Token Set.");
+        }
+</script>
+
+<script src="https://js.puter.com/v2/"></script>
+
+<script>
+        let sentMessages = []
+
+
+        function sendMessage() {
+              event.preventDefault();
+
+            const UserInput = document.getElementById("user-input")
+            let message = UserInput.value
+
+            let outerDiv = document.createElement('div')
+            outerDiv.classList.add('outer-user-mesage-holder')
+
+            let innerDiv = document.createElement('div')
+            innerDiv.classList.add('user-message-holder')
+            outerDiv.appendChild(innerDiv)
+
+            let pTag = document.createElement('p')
+            pTag.classList.add('user-message-p')
+            pTag.innerText = message
+            innerDiv.appendChild(pTag)
+
+            
+            let messagesDiv = document.getElementById('messages')
+            messagesDiv.appendChild(outerDiv)
+
+            UserInput.value = ''
+
+           AiReply(message)
+        }
+
+        function AiReply(prompt) {
+            sentMessages.push({ content: prompt, role: 'user' })
+
+            // put bubble with loading spinner
+
+            let outerDiv = document.createElement('div')
+            outerDiv.classList.add('outer-ai-mesage-holder')
+           
+            let spinner = document.createElement('img')
+            spinner.src = 'img/loadingSpinner2.gif';
+            outerDiv.appendChild(spinner)
+
+            let innerDiv = document.createElement('div')
+            innerDiv.classList.add('ai-message-holder')
+            innerDiv.style.display = 'none'
+            outerDiv.appendChild(innerDiv)
+
+            let pTag = document.createElement('p')
+            pTag.classList.add('ai-message-p')
+            innerDiv.appendChild(pTag)
+
+            
+            let messagesDiv = document.getElementById('messages')
+            messagesDiv.appendChild(outerDiv)
+
+            puter.ai.chat(sentMessages).then(response => {
+                    sentMessages.push(response.message);
+                    
+
+                console.log(response.message.content)
+
+                // putting gpt's text bubble now
+
+                    
+            
+
+            pTag.innerText = response.message.content
+            innerDiv.style.display = 'block'
+            spinner.remove()
+
+            //scroll user to end
+
+                let scrollPoint = document.createElement('div')
+                messagesDiv.appendChild(scrollPoint)
+                scrollPoint.scrollIntoView({ behavior: 'smooth' });
+                scrollPoint.remove()
+
+
+                //END
+
+                }).catch(error => {
+                    console.error("AI response error:", error);
+                });
+
+            /*
+            puter.ai.chat(messages).then(response => {
+                    addMessage(response, false);
+                    messages.push(response.message);
+                }).catch(error => {
+                    console.error("AI response error:", error);
+                });
+            */
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            flex-direction: column;
+        }
+
+        #chat-container {
+            width: 80%;
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #messages {
+            height: 300px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .message {
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 4px;
+            background: #2c7aef;
+            color: white;
+        }
+
+        .user-message {
+            text-align: right;
+            background: #f9f9f9;
+            color: black;
+        }
+
+        .user-message .message {
+            background: #e0f7fa;
+        }
+
+        #chat-input {
+            display: flex;
+        }
+
+        #chat-input input {
+            flex-grow: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        #chat-input button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #chat-input button:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script src="https://js.puter.com/v2/"></script>
+
+</head>
+
+<body>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div id="chat-input">
+            <input type="text" id="input-message" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <p>Created using Puter.JS</p>
+
+    <script>
+        const messages = [];
+        function addMessage(msg, isUser) {
+            const messagesDiv = document.getElementById("messages");
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("message");
+            if (isUser) {
+                messageDiv.classList.add("user-message");
+            }
+            messageDiv.textContent = msg;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("input-message");
+            const message = input.value.trim();
+            if (message) {
+                addMessage(message, true);
+                input.value = '';
+                // Record the message in array of messages
+                messages.push({ content: message, role: 'user' });
+                // Call the AI chat function
+                puter.ai.chat(messages).then(response => {
+                    addMessage(response, false);
+                    messages.push(response.message);
+                }).catch(error => {
+                    console.error("AI response error:", error);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>-->
