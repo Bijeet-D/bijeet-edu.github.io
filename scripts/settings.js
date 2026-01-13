@@ -42,7 +42,7 @@ border: none; /* removes border */
 </style>
 </head>
 <body>
-<iframe src="https://bijeet-d.github.io/bijeet-edu.github.io/"></iframe>
+<iframe src="${window.location.origin}"></iframe>
 </body>
 <html>
 `
