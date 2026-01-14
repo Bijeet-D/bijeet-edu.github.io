@@ -9,6 +9,7 @@
 
 
 
+
 function faviconstuff() {
 
 //auto about:blank
