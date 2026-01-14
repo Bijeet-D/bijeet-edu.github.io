@@ -10,7 +10,7 @@
 
 
 
-function faviconstuff() {
+function submitEmail() {
 
 //auto about:blank
     if ( localStorage.getItem("auto_about:blank") == true) {
