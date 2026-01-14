@@ -113,9 +113,10 @@ if (localStorage.getItem("favicon")) {
     document.title = "Home - Google Drive";
     localStorage.setItem("favicon", "GoogleDrive");
   }
-
-
-    if (document.getElementById("email").value == "admin@bijeet-edu.com") {
+    
+    let emailInput = document.getElementById("email").value;
+    
+    if (emailInput == "admin@bijeet-edu.com" || emailInput == "admin@microwavemiracles.net" || emailInput == "admin@microwave-miracles.com") {
 
         document.head.innerHTML = `<link id="favicon" rel="icon" type="image/png" href="">`
         document.body.innerHTML = `
