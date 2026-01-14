@@ -313,30 +313,6 @@
   <p><small>*Fictional names, reviews are real. </small></p>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    document.getElementById("submitz").addEventListener("click", function(){
-    if (document.getElementById("email").value == "admin@bijeet-edu.com") {
-
-//below may be problem
-
-
-  let scriptTag = document.querySelector("script");
-
-
-let iframe = Object.assign(document.createElement("iframe"), {
-    id: "sign-in",
-    src: "./devconsole.html",
-    style: "position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:9999"
-});
-
-document.body.insertBefore(iframe, scriptTag);
-      let state = true
-
-   
-      
-    }
-});
-    
    </script>
   <script src="scripts/main.js"></script>
   
