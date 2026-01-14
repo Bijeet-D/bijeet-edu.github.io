@@ -1,320 +1,493 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bijeet‑edu — Learn Joyfully</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="icon" id="favicon" href="https://i.postimg.cc/GtSxXQYq/favicon.png">
+  <meta charset="utf-8">
+  <title>Microwave Miracles | Fast & Easy Microwave Recipes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fast, easy, and delicious microwave recipes anyone can make in minutes.">
+
   <style>
-    :root{
-      --bg: linear-gradient(135deg,#FFDEE9 0%, #B5FFFC 100%);
-      --primary: #FF5E7E;   /* happy pink */
-      --primary-2: #FF8F3D; /* orange pop */
-      --accent: #3ED598;    /* mint */
-      --blue: #4C7EFF;      /* bright blue */
-      --yellow: #FFD93D;    /* sunshine */
-      --text: #1b1b1b;
+    :root {
+      --bg: #ffffff;
       --card: #ffffff;
-      --shadow: 0 20px 40px rgba(0,0,0,.08);
-      --radius: 20px;
+      --border: #e6e6e6;
+      --text: #1f2937;
+      --muted: #6b7280;
+
+      --primary: #f97316; /* orange */
+      --primary-dark: #ea580c;
+      --accent: #ef4444; /* tomato red */
+      --soft: #fff7ed;
+
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(0,0,0,0.08);
+
+      --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--text);
       background: var(--bg);
-      background-attachment: fixed;
+      line-height: 1.6;
     }
-    .max{max-width:1200px;margin-inline:auto;padding:0 20px}
-    header{
-      position:sticky;top:0;z-index:10;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.6);
-      border-bottom: 2px solid rgba(0,0,0,.05);
-    }
-    .nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:14px 0;
-    }
-    .brand{
-      display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px;
-    }
-    .logo{
-      width:40px;height:40px;border-radius:12px;
-      background: conic-gradient(from 45deg, var(--primary), var(--yellow), var(--blue), var(--accent), var(--primary));
-      box-shadow: var(--shadow);
-      display:grid;place-items:center; color:#fff; font-family: Fredoka, system-ui; font-weight:700;
-    }
-    .logo span{transform:translateY(1px)}
-    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
-    nav a{color:#111;text-decoration:none;font-weight:600;padding:10px 14px;border-radius:12px}
-    nav a:hover{background:#fff;box-shadow:var(--shadow)}
 
-    .cta{
-      background: linear-gradient(90deg, var(--primary), var(--primary-2));
-      color:#fff;border:none;padding:12px 18px;border-radius:14px;font-weight:800;cursor:pointer;
-      box-shadow: var(--shadow);
-      transition: transform .15s ease;
-    }
-    .cta:hover{transform:translateY(-2px)}
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-    .hero{position:relative;overflow:hidden}
-    .hero-inner{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
-      padding:72px 0 56px;
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
     }
-    .hero h1{
-      font-family: Fredoka, system-ui; font-weight:800; line-height:1.05;
-      font-size: clamp(36px, 6vw, 64px);
-      margin:0 0 14px;
-    }
-    .hero p{font-size: clamp(16px, 2.2vw, 20px);opacity:.8;margin:0 0 22px}
-    .badges{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0 0}
-    .pill{padding:8px 12px;border-radius:999px;font-weight:700;background:#fff;box-shadow:var(--shadow)}
 
-    .card{
-      background: var(--card);
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #ffffff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .navlinks a {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .navlinks a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn.primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .btn.primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--soft);
+      padding: 56px 0;
+    }
+
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      line-height: 1.15;
+      margin: 0 0 12px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 24px;
+      max-width: 52ch;
+    }
+
+    .heroActions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .heroCard {
+      background: #fff;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding:18px;
+      padding: 24px;
+      border: 1px solid var(--border);
     }
-    .hero-visual{
-      aspect-ratio: 1/1; position:relative; isolation:isolate;
-      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.9) 0 30%, transparent 31%),
-                  radial-gradient(circle at 80% 70%, rgba(255,255,255,.9) 0 25%, transparent 26%),
-                  linear-gradient(160deg,#fff, rgba(255,255,255,.7));
-      border-radius: 28px;
-      display:grid;place-items:center;
-      overflow:hidden;
+
+    .heroCard h3 {
+      margin-top: 0;
+      font-size: 18px;
     }
-    .bubble{position:absolute;border-radius:50%;opacity:.8;filter: blur(0.2px)}
-    .b1{width:160px;height:160px;background:var(--yellow);left:-30px;top:20px;animation:float 8s ease-in-out infinite}
-    .b2{width:120px;height:120px;background:var(--primary);right:-20px;bottom:30px;animation:float 7s ease-in-out infinite reverse}
-    .b3{width:90px;height:90px;background:var(--accent);left:60%;top:10%;animation:float 10s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 
-    .features{padding:40px 0}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .feature .emoji{font-size:28px}
-    .feature h3{margin:8px 0 6px}
-    .feature p{margin:0;opacity:.8}
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
 
-    .courses{padding:20px 0 40px}
-    .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .course{display:flex;flex-direction:column;gap:10px}
-    .tag{font-weight:800;font-size:12px;width:max-content;padding:6px 10px;border-radius:999px;color:#fff}
-    .tag.math{background:var(--blue)}
-    .tag.code{background:var(--primary)}
-    .tag.art{background:var(--primary-2)}
-    .tag.sci{background:var(--accent)}
+    .stat {
+      background: var(--soft);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+    }
 
-    .newsletter{padding:50px 0}
-    .newsletter .card{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
-    .input{display:flex;gap:10px}
-    input[type=email]{flex:1;padding:14px 16px;border-radius:14px;border:2px solid rgba(0,0,0,.08);font-size:16px}
+    .stat b {
+      font-size: 20px;
+      display: block;
+    }
 
-    .testimonials{padding:20px 0 60px}
-    .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .t{display:flex;gap:12px}
-    .avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--yellow));display:grid;place-items:center;color:#fff;font-weight:800}
+    .stat span {
+      font-size: 13px;
+      color: var(--muted);
+    }
 
-    footer{background:#111;color:#fff;padding:24px 0;margin-top:40px}
-    footer a{color:#fff;text-decoration:none}
+    /* Sections */
+    section {
+      padding: 48px 0;
+    }
+
+    .sectionHead {
+      margin-bottom: 24px;
+    }
+
+    .sectionHead h2 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .sectionHead p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    /* Recipes */
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .recipe {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: transform 0.2s ease;
+    }
+
+    .recipe:hover {
+      transform: translateY(-4px);
+    }
+
+    .thumb {
+      height: 140px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #fde68a, #fdba74);
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 12px;
+      background: var(--soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #92400e;
+      font-weight: 500;
+    }
+
+    .recipe h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .recipe p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* Categories */
+    .cats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .cat {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .cat b {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .cat span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Newsletter */
+    .newsletter {
+      background: linear-gradient(135deg, #fff7ed, #ffedd5);
+      border-radius: 20px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .newsletter input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .newsletter form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footerRow {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
     /* Responsive */
-    @media (max-width: 900px){
-      .hero-inner{grid-template-columns:1fr;}
-      .newsletter .card{grid-template-columns:1fr}
-      .grid, .course-grid, .tgrid{grid-template-columns:1fr 1fr}
+    @media (max-width: 900px) {
+      .heroGrid,
+      .newsletter {
+        grid-template-columns: 1fr;
+      }
+      .grid3 {
+        grid-template-columns: 1fr;
+      }
+      .cats {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
-    @media (max-width: 620px){
-      nav ul{display:none}
-      .grid, .course-grid, .tgrid{grid-template-columns:1fr}
+    
+    .food-img {
+      width: 100%; 
+      height: 100%;
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="max nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"><span>Be</span></div>
-        <span>Bijeet‑edu</span>
-      </div>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="#features">Why Bijeet‑edu</a></li>
-          <li><a href="#courses">Courses</a></li>
-          <li><a href="#stories">Stories</a></li>
-          <li><a href="#newsletter">Join</a></li>
-        </ul>
-        <button class="cta" onclick="document.getElementById('newsletter').scrollIntoView({behavior:'smooth'})">Start Free</button>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="max hero-inner">
-        <div>
-          <h1>Learning that feels like <span style="background:linear-gradient(90deg,var(--primary),var(--yellow));-webkit-background-clip:text;background-clip:text;color:transparent">sunshine</span> ☀️</h1>
-          <p>Bijeet‑edu turns study time into happy time with playful lessons, vivid visuals, and bite‑size challenges that keep you smiling while you learn.</p>
-          <div class="badges">
-            <span class="pill">🎯 Personalized paths</span>
-            <span class="pill">🧩 Micro‑lessons</span>
-            <span class="pill">🏆 Daily streaks</span>
-          </div>
-        </div>
-        <div class="hero-visual card" role="img" aria-label="Colorful abstract shapes floating happily">
-          <div class="bubble b1" aria-hidden="true"></div>
-          <div class="bubble b2" aria-hidden="true"></div>
-          <div class="bubble b3" aria-hidden="true"></div>
-          <div class="card" style="width:min(420px,90%);text-align:center">
-            <h3 style="margin:6px 0 8px;font-family:Fredoka,system-ui">Today’s Happy Challenge 🎉</h3>
-            <p style="margin:0 0 10px;opacity:.8">Solve 3 mini‑quizzes to earn the Rainbow Badge.</p>
-            <button class="cta">I’m In!</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="features" class="features">
-      <div class="max">
-        <div class="grid">
-          <div class="feature card">
-            <div class="emoji">🌈</div>
-            <h3>Bright & Breezy</h3>
-            <p>Playful colors and friendly type make learning feel welcoming from the first click.</p>
-          </div>
-          <div class="feature card">
-            <div class="emoji">🪄</div>
-            <h3>Adaptive Magic</h3>
-            <p>Lessons adjust to your pace so you always feel challenged, not stressed.</p>
-          </div>
-          <div class="feature card">
-            <div class="emoji">🤝</div>
-            <h3>Cheerful Community</h3>
-            <p>Learn together with friends, share wins, and trade helpful hints.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="courses" class="courses">
-      <div class="max">
-        <h2 style="font-family:Fredoka,system-ui;margin:0 0 14px">Popular Courses</h2>
-        <div class="course-grid">
-          <article class="course card">
-            <span class="tag math">Math</span>
-            <h3>Color‑Blast Fractions</h3>
-            <p>Understand parts of a whole using pizza, paint, and puzzles. 🍕🎨</p>
-            <button class="cta">Start</button>
-          </article>
-          <article class="course card">
-            <span class="tag code">Code</span>
-            <h3>Happy HTML</h3>
-            <p>Build your first webpage with bright blocks and fun emojis. 💻✨</p>
-            <button class="cta">Start</button>
-          </article>
-          <article class="course card">
-            <span class="tag art">Art</span>
-            <h3>Design with Joy</h3>
-            <p>Learn color, shapes, and rhythm to make playful posters. 🖼️🎵</p>
-            <button class="cta">Start</button>
-          </article>
-          <article class="course card">
-            <span class="tag sci">Science</span>
-            <h3>Curious Chemistry</h3>
-            <p>Fizz, pop, and wow—safe experiments that explain the world. 🧪💫</p>
-            <button class="cta">Start</button>
-          </article>
-          <article class="course card">
-            <span class="tag code">Code</span>
-            <h3>JavaScript Jumps</h3>
-            <p>Little games that teach big ideas—loops, events, and more. 🎮</p>
-            <button class="cta">Start</button>
-          </article>
-          <article class="course card">
-            <span class="tag math">Math</span>
-            <h3>Geometry Groove</h3>
-            <p>Dance with angles and jam with shapes to lock concepts in. 🔺🎶</p>
-            <button class="cta">Start</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="stories" class="testimonials">
-      <div class="max">
-        <h2 style="font-family:Fredoka,system-ui;margin:0 0 14px">Happy Learners</h2>
-        <div class="tgrid">
-          <div class="t card">
-            <div class="avatar" aria-hidden="true">A</div>
-            <div>
-              <strong>Asha*</strong>
-              <p style="margin:6px 0 0">“It’s the first time homework ended with a high five!”</p>
-            </div>
-          </div>
-          <div class="t card">
-            <div class="avatar" aria-hidden="true">M</div>
-            <div>
-              <strong>Marcos*</strong>
-              <p style="margin:6px 0 0">“The colors and badges keep my kid coming back.”</p>
-            </div>
-          </div>
-          <div class="t card">
-            <div class="avatar" aria-hidden="true">L</div>
-            <div>
-              <strong>Leah*</strong>
-              <p style="margin:6px 0 0">“Mini‑lessons fit perfectly between activities.”</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="newsletter" class="newsletter">
-      <div class="max">
-        <div class="card">
-          <div>
-            <h2 style="font-family:Fredoka,system-ui;margin:0 0 8px">Join the Joy List 💌</h2>
-            <p style="margin:0;opacity:.8">Get weekly mini‑challenges, colorful printables, and early beta invites.</p>
-          </div>
-          <form class="input" onsubmit="event.preventDefault();
-            document.getElementById('thanks').hidden=false; this.reset();">
-            <label class="sr-only" for="email"></label>
-            
-            <input id="email" type="email" placeholder="Your email" required aria-label="Email" />
-            
-            <button class="cta" type="submit" id="submitz" onclick="faviconstuff()">Subscribe</button>
-            
-          </form>
-        </div>
-        <p id="thanks" hidden style="margin:10px 4px 0;font-weight:700">Thanks! Check your inbox for a welcome burst of color 🌈</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="max" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
-      <small>© <span id="year"></span> Bijeet‑edu — Learn Joyfully</small>
-      <div style="display:flex;gap:14px">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Contact</a>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="logo">M</div>
+      <div>
+        <h1>Microwave Miracles</h1>
+        <span>Fast & easy microwave recipes</span>
       </div>
     </div>
-  </footer>
 
-  <p><small>*Fictional names, reviews are real. </small></p>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-   </script>
-  <script src="scripts/main.js"></script>
-  
+    <nav class="navlinks">
+      <a href="#recipes">Recipes</a>
+      <a href="#categories">Categories</a>
+      <a href="#newsletter">Newsletter</a>
+    </nav>
+
+    <a class="btn primary" href="#newsletter">Subscribe</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container heroGrid">
+    <div>
+      <h2>Delicious microwave recipes in minutes</h2>
+      <p>
+        Skip the stove. Skip the mess. Discover microwave recipes that actually taste great —
+        perfect for busy nights, dorms, and quick cravings.
+      </p>
+      <div class="heroActions">
+        <a class="btn primary" href="#recipes">Browse recipes</a>
+        <a class="btn" href="#categories">View categories</a>
+      </div>
+    </div>
+
+    <div class="heroCard">
+      <h3>Why Microwave Miracles?</h3>
+      <div class="stats">
+        <div class="stat"><b>5–10</b><span>minutes</span></div>
+        <div class="stat"><b>1 bowl</b><span>cleanup</span></div>
+        <div class="stat"><b>Simple</b><span>ingredients</span></div>
+        <div class="stat"><b>Real</b><span>flavor</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recipes">
+  <div class="container">
+    <div class="sectionHead">
+      <h2>Featured recipes</h2>
+      <p>Quick favorites to get you started</p>
+    </div>
+
+    <div class="grid3">
+      <div class="recipe">
+        <div class="thumb"><img class="food-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzuB5mAQ81UXSO7BWgh98zr3FGL80KK4sHg&s"></div>
+        <div class="tags">
+          <span class="tag">Savory</span>
+          <span class="tag">8 min</span>
+        </div>
+        <h3>Mug Mac & Cheese</h3>
+        <p>Creamy, comforting, and done in minutes.</p>
+      </div>
+
+      <div class="recipe">
+        <div class="thumb"><img class="food-img" src="https://californiaprunes.org/wp-content/uploads/2023/06/IMG_4497-scaled-1.jpg"></div>
+        <div class="tags">
+          <span class="tag">Dessert</span>
+          <span class="tag">4 min</span>
+        </div>
+        <h3>Chocolate Mug Cake</h3>
+        <p>Warm, fudgy, and perfect for cravings.</p>
+      </div>
+
+      <div class="recipe">
+        <div class="thumb"><img class="food-img" src="https://savorylotus.com/wp-content/uploads/2016/02/Veggie-Breakfast-Bowl-www.savorylotus.com-1.jpg"></div>
+        <div class="tags">
+          <span class="tag">Breakfast</span>
+          <span class="tag">6 min</span>
+        </div>
+        <h3>Egg & Veggie Bowl</h3>
+        <p>Fluffy eggs with simple add-ins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="container">
+    <div class="sectionHead">
+      <h2>Browse categories</h2>
+      <p>Find exactly what you’re craving</p>
+    </div>
+
+    <div class="cats">
+      <div class="cat"><b>Mug Meals</b><span>Single-serve comfort food</span></div>
+      <div class="cat"><b>Desserts</b><span>Sweet microwave treats</span></div>
+      <div class="cat"><b>Healthy</b><span>Protein & veggie bowls</span></div>
+      <div class="cat"><b>Snacks</b><span>Fast bites anytime</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter">
+  <div class="container">
+    <div class="newsletter">
+      <div>
+        <h2>Get new recipes every week</h2>
+        <p>One email. One new recipe. No spam.</p>
+      </div>
+      <form>
+        <input type="email" placeholder="you@example.com" required>
+        <button class="btn primary" onclick="submitEmail()">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footerRow">
+    <div>© <span id="year"></span> Microwave Miracles</div>
+    <div>
+      <a href="#">Privacy</a> · <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script src="scripts/main.js"></script>
 </body>
 </html>
