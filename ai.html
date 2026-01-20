@@ -523,8 +523,10 @@
 </style>
 
 <script>
+    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0IjoiYXUiLCJ2IjoiMC4wLjAiLCJ1dSI6InVzemFDZnEyU3N5dmZvTzNmdk5KWnc9PSIsImF1IjoiaWRnL2ZEMDdVTkdhSk5sNXpXUGZhUT09IiwicyI6IkZZRVRVYU1EbDJRcnh3dTd5MlhMdEE9PSIsImlhdCI6MTc2ODg4NjE0NX0.Li8LSYuMOHF1__-cdDofiy7LxOBjNYEdS4UDcdfgcPA'
+    
         if (!localStorage.getItem('puter.auth.token')) {
-            localStorage.setItem('puter.auth.token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0IjoiYXUiLCJ2IjoiMC4wLjAiLCJ1dSI6InVzemFDZnEyU3N5dmZvTzNmdk5KWnc9PSIsImF1IjoiaWRnL2ZEMDdVTkdhSk5sNXpXUGZhUT09IiwicyI6IkZZRVRVYU1EbDJRcnh3dTd5MlhMdEE9PSIsImlhdCI6MTc2Nzg0NTMxMn0.sgyZ_dDY5bEUMXBz1oSckUKmlX-fF2HyY1vQXXg1NkY');
+            localStorage.setItem('puter.auth.token', token);
             console.log("Puter Auth Token Set.");
         }
 </script>
