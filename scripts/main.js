@@ -10,8 +10,9 @@
 
 
 
-function submitEmail() {
-
+function submitEmail(event) {
+    
+event.preventDefault()
 //auto about:blank
     if ( localStorage.getItem("auto_about:blank") == true) {
 let win = window.open("about:blank", "_blank");
