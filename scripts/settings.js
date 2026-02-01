@@ -93,7 +93,7 @@ function googleClassroomFavicon() {
   }
   
   function googleDriveFavicon() {
-    localStorage.setItem("favicon", "");
+    localStorage.setItem("favicon", "images/GoogleDriveFavicon.png");
     localStorage.setItem("pageTitle", "Home - Google Drive")
 
 
