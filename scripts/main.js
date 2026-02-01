@@ -12,6 +12,9 @@ if (!localStorage.getItem("newFavFormatYet")) {
 
 
 function openFrame(fav, ttl) {
+  console.log(fav)
+  console.log(ttl)
+  
     document.head.innerHTML = ''
     document.body.innerHTML = `
     <iframe src="devconsole.html"></iframe>
