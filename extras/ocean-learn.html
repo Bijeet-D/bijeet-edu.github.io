@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GMS</title>
+    <style>
+        body {
+            color: aliceblue; /*Change to aliceblue*/
+            text-align: center;
+            background: linear-gradient(to bottom right, rgb(0, 34, 186), rgb(0, 0, 0));
+            background-attachment: fixed;
+        }
+
+
+        .btn-element {
+	cursor: pointer;
+	transition: transform 0.15s ease;
+}
+
+.btn-element:hover {
+	transform: scale(1.05);
+}
+
+.btn-element:active {
+	transform: scale(1);
+}
+
+
+    .gm-card {
+  margin: 5px;
+  background-color: blue;
+  border-radius: 25px;
+}
+
+.gm-card, .gm-card img{
+padding: 0px;
+background: none;
+border: none;
+cursor: pointer;
+display: inline-block;
+transition: transform 0.1s ease;/* when transform properties are changed on this, within 0.1 secs(more smooth)*/ 
+position: relative;
+text-align: center;
+color: rgb(255, 255, 255);
+/*border-radius: 25px;*/
+}
+
+
+.gm-card:hover{
+transform: scale(0.95);   
+}
+
+.gm-card:hover .hover-text {
+opacity: 1;
+}
+
+.gm-card img{
+transition: 0.5s ease;
+height: 150px;
+width: 150px;
+display: block;
+border-radius: 25px;
+}
+
+
+
+
+.gm-card:hover img {
+filter: grayscale(20%) brightness(70%);
+}
+
+.gm-card:active{
+transform: scale(0.9); /* makes button get smaller on click*/
+}
+
+/* below is for the text on the img*/
+
+.hover-text{
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+/*font-size: 30px;*/
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 10px floralwhite;
+    opacity: 0;
+    z-index: 3;
+    transition: 0.5s ease;
+    font-size: 1.5em;
+}
+
+#gm-popup{
+    position: absolute;
+    position: fixed;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    align-items: center; 
+    justify-content: center; 
+    overflow: hidden;
+    line-height: 0px !important;
+}
+
+.gm-frame {
+    height: 85vh;
+    width: 100vw;
+    display: block !important;
+    line-height: 0px !important;
+}
+
+#top-bar {
+    position: absolute;
+    display: flex;
+    top: 0px;
+    width: 100vw;
+    height: 7.5vh;
+    background-color: rgb(0, 101, 179);
+    justify-content: center;
+    align-items: center;
+}
+
+#bottom-bar {
+    position: absolute;
+    display: flex;
+    bottom: 0px;
+    width: 100vw;
+    height: 7.5vh;
+    background-color: rgb(126, 180, 255);
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+}
+
+#right-top-bar {
+    position: absolute;
+    right: 10px;
+}
+
+#x-buttton-gm-popup{
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#fullscreen-button {
+    position: absolute;
+    right: 0.3em;
+}
+
+#blue-bg {
+    background-color: rgb(0, 0, 49);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    cursor: no-drop;
+}
+
+#search-gms {
+    width: 30rem;
+    height: 3rem;
+    background-color: rgba(0, 255, 242, 0.3);
+    border-radius: 1em;
+    border: none;
+    text-align: center;
+    color: aliceblue;
+    font-size: 1.3em;
+}
+
+#search-gms::placeholder {
+    color: rgb(194, 226, 255);
+    font-size: 1em;
+}
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <main> <!--Outside main is just the game popup-->
+    <h1>Oceanic Gms</h1>
+    <h3>Thanks to <a href="https://gn-math-t.github.io/">gn-math</a> for the games.</h3>
+        <div style="margin: 6em;"></div>
+    <input id="search-gms" placeholder="Loading Search...">
+        <div style="margin: 2em;"></div>
+    <div id="gms-container">
+
+    <!--GAMES WILL BE DYNAMICLY ADDED HERE-->
+
+    </div>
+    </main>
+
+    <!--<div id="gm-popup">
+        <div id="top-bar">
+            <div id="centered-top-bar">
+                <h1 id="gm-name">GAME NAME</h1>
+            </div>
+            
+            <div id="right-top-bar">
+                <p id="x-buttton-gm-popup" class="btn-element">✕</p>
+            </div>
+            
+            
+        </div>
+        <iframe frameborder="0" id="frame-gm" class="gm-frame" src="data:text/html,<style>html, body {background-color: black;}</style>"></iframe>
+        <div id="bottom-bar">
+            <h1>Oceanic Gms</h1>
+            <i id="fullscreen-button" class="icon-fullscreen fas fa-expand btn-element" style="font-size: 2em;" onclick="fullscreen()"></i>
+        </div>
+    </div>-->
+
+    <script>
+
+let globalVars = {}
+let searchInput = document.getElementById("search-gms");
+
+
+        function createFrame() {
+            let outsideDiv = document.createElement('div');
+            outsideDiv.id = 'gm-popup'
+            outsideDiv.innerHTML = `
+            <div id="blue-bg"></div>
+        <div id="top-bar">
+            <div id="centered-top-bar">
+                <h1 id="gm-name">GAME NAME</h1>
+            </div>
+            
+            <div id="right-top-bar">
+                <p id="x-buttton-gm-popup" class="btn-element" onclick="closeGmWindow()">✕</p>
+            </div>
+            
+            
+        </div>
+        <iframe frameborder="0" id="frame-gm" class="gm-frame"></iframe>
+        <div id="bottom-bar">
+            <h1>Oceanic Gms</h1>
+            <i id="fullscreen-button" class="icon-fullscreen fas fa-expand btn-element" style="font-size: 2em;" onclick="fullscreen()"></i>
+        </div>
+            `;
+            document.body.appendChild(outsideDiv)
+        }
+
+async function fetchText(url) {
+    const response = await fetch(url);
+    return response.text();
+}
+
+
+
+        function createCard(name, image, directory) {
+            let OuterDiv = document.createElement('div');
+            OuterDiv.classList = 'gm-card'
+            OuterDiv.onclick = () => cardOnClick(directory, name);
+            OuterDiv.id = (name + "-gm-card").replaceAll(' ', '~');
+            let img = document.createElement('img')
+            img.src = image
+            img.loading = 'lazy'
+            img.alt = 'name'
+
+			if (name == 'sandstone') {
+				OuterDiv.style.display = 'none';
+			}
+			
+            let hoverText = document.createElement('h1')
+            hoverText.classList = 'hover-text'
+            hoverText.textContent = name
+
+            document.getElementById("gms-container").appendChild(OuterDiv)
+            OuterDiv.appendChild(img)
+            OuterDiv.appendChild(hoverText)
+        }
+
+        async function cardOnClick(locationOfCode, nameOfGame) {
+            createFrame()
+            document.querySelector("main").style.display = 'none'; //hide main content (in <main>)
+            let frame = document.getElementById("frame-gm");
+            let code = await fetch(locationOfCode);
+            code = await code.text();
+
+            frame.contentDocument.open();
+            frame.contentDocument.write(code);
+            frame.contentDocument.close();
+
+            document.getElementById("gm-name").textContent = nameOfGame;
+        }
+
+
+        async function createGmsFromJson() {
+            
+            let gamesJson = await (await fetch("https://cdn.jsdelivr.net/gh/gn-math/assets/zones.json")).json();    
+            window.gamesJson = gamesJson;
+
+            console.log(window.gamesJson)
+
+            gamesJson.forEach(el => {
+                if (el.id !== -1) { // no discord sugest games icon
+                    
+                
+                let name = el.name
+                if (name.length > 21) { //if the name is to long, truncate it
+                    name = name.slice(0, 18) + "..."
+                }
+                let image = el.cover.replace('{COVER_URL}', 'https://cdn.jsdelivr.net/gh/gn-math/covers@main');
+                let codeLocation = el.url.replace('{HTML_URL}', 'https://cdn.jsdelivr.net/gh/gn-math/html@main');
+                //idk ovo is broken so fixed below
+
+                createCard(name, image, codeLocation)
+                }
+            });
+
+        }
+
+        function fullscreen() {
+
+            let iframe = document.getElementById("frame-gm")
+
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { // Firefox
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { // IE/Edge
+            iframe.msRequestFullscreen();
+        } else {
+            alert("Fullscreen is not supported by this browser.");
+        }
+}
+
+
+//======== SEARCH/GM-WINDOW-CLOSE FUNCTIONALITY
+//AWAIT createGmsFromJson() in function below
+async function defineVarsAfterGamesJsonIsDefined() {
+
+await createGmsFromJson();
+searchInput.placeholder = 'Search Over 500+ Games';
+
+let gmCards = document.querySelectorAll(".gm-card");
+let gmNames = [];
+let gmIds = [];
+
+//===== Whyyyy does adding searchbar have to be so hard
+
+
+gmCards.forEach(gm => {
+      gmIds.push(gm.id);
+      gmNames.push(document.getElementById(gm.id).querySelector(".hover-text").textContent);
+});
+
+window.gmCards = gmCards;
+window.gmNames = gmNames;
+window.gmIds = gmIds;
+console.log(gmIds)
+console.log(gmCards, " gm cards")
+console.log(gamesJson, "gm json")
+}
+
+defineVarsAfterGamesJsonIsDefined() //long name ::skull
+//========
+
+
+
+function closeGmWindow() {
+    let div = document.getElementById("gm-popup")
+    document.querySelector("main").style.display = 'block'; //show <main> agian
+    div.remove()
+}
+    
+    async function searchGms(input) { // idk it needs to be async for some reason
+
+    //gm-card style when visible is inline-block
+
+    gmCards.forEach(el => { // hide all gms
+        el.style.display = 'none'
+    });
+//==========
+//=========
+inputLower = input.toLowerCase();
+
+for (let i = 0; i < gmNames.length; i++) {
+    
+     if ((gmNames[i].toLowerCase()).includes(input)) {
+        
+
+        document.getElementById(gmIds[i]).style.display = 'inline-block'
+      }
+
+}
+
+
+}
+
+
+searchInput.addEventListener("input", () => {
+    searchGms(searchInput.value);
+});
+
+
+		window.top.document.title = 'oceanic gms'
+		
+    </script>
+</body>
+</html>
