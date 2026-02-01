@@ -5,14 +5,53 @@
 /*
 
 */
+if (!localStorage.getItem("newFavFormatYet")) {
+  localStorage.setItem("newFavFormatYet", true)
+  localStorage.setItem("favicon", "Microwave Miracles | Easy Microwave recipes")
+}
 
 
+function openFrame(fav, ttl) {
+    document.head.innerHTML = ''
+    document.body.innerHTML = `
+    <iframe src="devconsole.html"></iframe>
+    <link rel="stylesheet" href="styles.css">
+    <style>
 
+                html, body {
+                    margin: 0px;
+                    padding: 0px;
+                }
+                
+                iframe {
+                    margin: 0px;
+                    padding: 0px;
+                    height: 100vh;
+                    width: 100vw;
+                    border: 0px;
+                }
+                
+                </style>
+    `
+
+    let pageFavicon = document.createElement('link')
+    pageFavicon.rel = "icon"
+    pageFavicon.id = "favicon"
+    pageFavicon.type = "image/png"
+    pageFavicon.href = fav
+
+    document.head.appendChild(pageFavicon)
+
+//============
+
+    document.title = ttl
+}
 
 
 function submitEmail(event) {
     
 event.preventDefault()
+
 //auto about:blank
     if ( localStorage.getItem("auto_about:blank") == true) {
 let win = window.open("about:blank", "_blank");
@@ -47,184 +86,19 @@ const GDriveFavicon = "images/GoogleDriveFavicon.png"
 //websiteRedirectInputContainer.style.display = 'none';       
 //kdi
 
-
-
-
-//idk ======= ONLOAD STUFF
-
-if (localStorage.getItem("favicon")) {
-  const favicon = localStorage.getItem("favicon")
-  
-  if (favicon === "GoogleClassroom") { // google classroom
-    googleClassroomFavicon()
-  } else if (favicon === "GoogleDocs") {
-    googleDocsFavicon()
-  } else if (favicon === "Gmail") {
-    GmailFavicon()
-  } else if (favicon === "GoogleDrive") {
-    googleDriveFavicon()
-  } 
-
-
-
-
-}
-
-
-
-//kdi ===========
-
-
-
-
-
-// INTERACTIVE STUFF JS
-
-
- 
-  //END OF INTERACTIVE JS STUFF
-
-
-
-
-
-
-
-  function googleClassroomFavicon() {
-    faviconElement.setAttribute("href", GCfavicon);
-    document.title = "Home";
-    localStorage.setItem("favicon", "GoogleClassroom");
-  }
-
-  function googleDocsFavicon() {
-    faviconElement.setAttribute("href", GDfavicon);
-    document.title = "Google Docs";
-    localStorage.setItem("favicon", "GoogleDocs");
-  }
-  
-
-  function GmailFavicon() {
-    faviconElement.setAttribute("href", GmailFaviconImg);
-    document.title = "Inbox";
-    localStorage.setItem("favicon", "Gmail");
-  }
-  
-  function googleDriveFavicon() {
-    faviconElement.setAttribute("href", GDriveFavicon);
-    document.title = "Home - Google Drive";
-    localStorage.setItem("favicon", "GoogleDrive");
-  }
     
     let emailInput = document.getElementById("email").value;
     
     if (emailInput == "admin@bijeet-edu.com" || emailInput == "admin@microwavemiracles.net" || emailInput == "admin@microwave-miracles.com") {
 
-        document.head.innerHTML = `<link id="favicon" rel="icon" type="image/png" href="">`
-        document.body.innerHTML = `
+        let favicon = localStorage.getItem("favicon")
+        let title = localStorage.getItem("pageTitle")
 
-                <link rel="stylesheet" href="styles.css">
-                <link id="favicon" rel="icon" href="">
-                <iframe src="devconsole.html"></iframe>
-                <style>
-
-                html, body {
-                    margin: 0px;
-                    padding: 0px;
-                }
-                
-                iframe {
-                    margin: 0px;
-                    padding: 0px;
-                    height: 100vh;
-                    width: 100vw;
-                    border: 0px;
-                }
-                
-                </style>
-
-                <script>
-
-  const favicon = localStorage.getItem("favicon");
-const GCfavicon = "https://www.gstatic.com/classroom/ic_product_classroom_144.png";
-const GDfavicon = "images/GDfavicon.png";
-const GmailFaviconImg = "images/GmailFavicon.png";
-const GDriveFavicon = "images/GoogleDriveFavicon.png";
-let faviconElement = document.getElementById("favicon");
-
-                
-                if (localStorage.getItem("favicon")) {
-                
-
-  
-  if (favicon === "GoogleClassroom") { // google classroom
-    googleClassroomFavicon()
-  } else if (favicon === "GoogleDocs") {
-    googleDocsFavicon()
-  } else if (favicon === "Gmail") {
-    GmailFavicon()
-  } else if (favicon === "GoogleDrive") {
-    googleDriveFavicon()
-  } 
-
-
-
-
-}
-
-
-
-//kdi ===========
-
-
-
-
-
-// INTERACTIVE STUFF JS
-
-
- 
-  //END OF INTERACTIVE JS STUFF
-
-
-
-
-
-
-
-
-  function googleClassroomFavicon() {
-    faviconElement.setAttribute("href", GCfavicon);
-    document.title = "Home";
-    localStorage.setItem("favicon", "GoogleClassroom");
-  }
-
-  function googleDocsFavicon() {
-    faviconElement.setAttribute("href", GDfavicon);
-    document.title = "Google Docs";
-    localStorage.setItem("favicon", "GoogleDocs");
-  }
-  
-
-  function GmailFavicon() {
-    faviconElement.setAttribute("href", GmailFaviconImg);
-    document.title = "Inbox";
-    localStorage.setItem("favicon", "Gmail");
-  }
-  
-  function googleDriveFavicon() {
-    faviconElement.setAttribute("href", GDriveFavicon);
-    document.title = "Home - Google Drive";
-    localStorage.setItem("favicon", "GoogleDrive");
-  }
-                
-                </script>
-        
-        `
+        openFrame(favicon, title);
         
     }
 
 }
-
 
 
 

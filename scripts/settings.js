@@ -1,3 +1,6 @@
+console.log("ewuhifhwieuhifue")
+
+
 const autoAboutBlankCheckbox = document.getElementById("autoAboutBlankCheckbox")
 
 
@@ -63,18 +66,37 @@ URL.revokeObjectURL(url);
 
 
 function googleClassroomFavicon() {
-    localStorage.setItem("favicon", "GoogleClassroom");
+    localStorage.setItem("favicon", "https://www.gstatic.com/classroom/ic_product_classroom_144.png");
+    localStorage.setItem("pageTitle", "Home")
+
+    console.log(localStorage.getItem("favicon"))
+    console.log(localStorage.getItem("pageTitle"))
   }
 
   function googleDocsFavicon() {
-    localStorage.setItem("favicon", "GoogleDocs");
+    localStorage.setItem("favicon", "images/GDfavicon.png");
+    localStorage.setItem("pageTitle", "Google Docs")
+
+
+    console.log(localStorage.getItem("favicon"))
+    console.log(localStorage.getItem("pageTitle"))
   }
   
 
   function GmailFavicon() {
-    localStorage.setItem("favicon", "Gmail");
+    localStorage.setItem("favicon", "images/GmailFavicon.png");
+    localStorage.setItem("pageTitle", "Inbox")
+
+
+    console.log(localStorage.getItem("favicon"))
+    console.log(localStorage.getItem("pageTitle"))
   }
   
   function googleDriveFavicon() {
-    localStorage.setItem("favicon", "GoogleDrive");
+    localStorage.setItem("favicon", "");
+    localStorage.setItem("pageTitle", "Home - Google Drive")
+
+
+    console.log(localStorage.getItem("favicon"))
+    console.log(localStorage.getItem("pageTitle"))
   }
