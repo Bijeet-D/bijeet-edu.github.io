@@ -1,6 +1,13 @@
  let errorThrown = false
+const urlParams = new URLSearchParams(window.location.search);
 let ubURL = ''
+
+if (!urlParams.get('path')) {
  ubURL = window.location.search.substring(1)
+} else if (urlParams.get('path')) {
+ ubURL = urlParams.get('path')
+}
+
 
     function redirectToBlob() {
       // create the iframe page as a blob
@@ -8,7 +15,7 @@ let ubURL = ''
 
         if (ubURL != "") {
 
-        if (ubURL.indexOf('https') != 0) {
+        if ((ubURL.indexOf('https') != 0) && !urlParams.get('path')) {
             ubURL = "https://" + ubURL
         }
 
