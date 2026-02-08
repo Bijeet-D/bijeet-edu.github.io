@@ -5,7 +5,7 @@ let ubURL = ''
 if (!urlParams.get('path')) {
  ubURL = window.location.search.substring(1)
 } else if (urlParams.get('path')) {
- ubURL = urlParams.get('path')
+ ubURL = `${window.location.origin}/${urlParams.get('path')}`
 }
 
 
