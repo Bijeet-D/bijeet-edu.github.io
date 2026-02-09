@@ -94,7 +94,7 @@ body {
 
             const link = document.createElement("a");
             link.href = url;
-            link.download = "bijeet-edu-download.html";
+            link.download = "oceanic-gms.html";
             link.click();
             URL.revokeObjectURL(url);
         });
