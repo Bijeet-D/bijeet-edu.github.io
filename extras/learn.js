@@ -107,3 +107,43 @@ body {
         main()
 
     }
+
+
+
+
+
+
+document.querySelector("body > main > h3").innerHTML = 'Thanks to <a href="https://gn-math-t.github.io/">gn-math</a> for the games. All games are sourced from there.'
+
+                    let observer = new MutationObserver((mutations) => {
+
+                for (const mutation of mutations) {
+
+
+                    try {
+
+                        document.getElementById('I~woke~up~next~to~...-gm-card').remove()
+                        document.getElementById('Five~Nights~at~Eps...-gm-card').remove()
+
+
+                        document.getElementById('Soundboard-gm-card').addEventListener('click', () => {
+                            alert("PLEASE DONT ABUSE THE SOUNDBOARD IN CLASS \n \n pls... it isn't funny")
+                        })
+
+24
+                        observer.disconnect()
+                    } catch(e) {}
+
+
+
+
+
+                }
+
+            })
+
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
+})
