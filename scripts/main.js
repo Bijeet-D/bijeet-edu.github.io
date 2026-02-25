@@ -95,7 +95,7 @@ const GDriveFavicon = "images/GoogleDriveFavicon.png"
     if (emailInput == "admin@bijeet-edu.com" || emailInput == "admin@microwavemiracles.net" || emailInput == "admin@microwave-miracles.com") {
 
         let favicon = localStorage.getItem("favicon")
-        let title = localStorage.getItem("pageTitle")
+        let title = localStorage.getItem("pageTitle") || "Bijeet-EDU!"
 
         openFrame(favicon, title);
         
