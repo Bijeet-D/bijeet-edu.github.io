@@ -65,7 +65,8 @@
 
 </div>
 
-
+<img src="/images/Trollface.webp" id="trollface">
+    
 <style>
 
 #bottomBar img{
@@ -109,6 +110,16 @@ html, body {
     }
 
 
+    #trollface {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            transition: opacity 0.4s ease;
+            display: none;
+        }
+    
 </style>
 
 <script>
@@ -144,10 +155,50 @@ function fullscreen() {
 
 getElement("gameFrame").src = game
 
-if (Math.random() > 0.9) {
-    window.top.open("https://www.youtube.com/watch?v=2qBlE2-WL60")
+//APR 1st CODE
+
+let trollface = document.querySelector("#trollface")
+
+        function unTroll() {
+        
+        trollface.style.opacity = 0;
+        
+        }
+
+        function fullUntroll() {
+        setTimeout(()=>{
+            unTroll()
+        }, 800)
+
+        setTimeout(()=>{
+            trollface.style.display = 'none'
+        }, 1200)
+    }
+
+
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") {
+    console.log("User is on this tab");
+    fullUntroll()
+  }
+  
+});
+
+
+function roll() {
+    window.open("https://www.youtube.com/watch?v=2qBlE2-WL60")
+    trollface.style.display = 'inline'
 }
 
+
+    
+if (Math.random() > 0.9) {
+    roll();
+}
+
+    //END APR1 1st CODE
+    
+//images/Trollface.webp
 </script>
 
 </body>
