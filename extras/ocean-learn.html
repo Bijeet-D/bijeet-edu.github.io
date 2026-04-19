@@ -302,7 +302,7 @@ async function fetchText(url) {
 
         async function createGmsFromJson() {
             
-            let gamesJson = await (await fetch("https://cdn.jsdelivr.net/gh/gn-math/assets/zones.json")).json();    
+            let gamesJson = await (await fetch("https://cdn.jsdelivr.net/gh/freebuisness/assets/zones.json")).json();    
             window.gamesJson = gamesJson;
 
             console.log(window.gamesJson)
@@ -315,8 +315,8 @@ async function fetchText(url) {
                 if (name.length > 21) { //if the name is to long, truncate it
                     name = name.slice(0, 18) + "..."
                 }
-                let image = el.cover.replace('{COVER_URL}', 'https://cdn.jsdelivr.net/gh/gn-math/covers@main');
-                let codeLocation = el.url.replace('{HTML_URL}', 'https://cdn.jsdelivr.net/gh/gn-math/html@main');
+                let image = el.cover.replace('{COVER_URL}', 'https://cdn.jsdelivr.net/gh/freebuisness/covers@main');
+                let codeLocation = el.url.replace('{HTML_URL}', 'https://cdn.jsdelivr.net/gh/freebuisness/html@main');
                 //idk ovo is broken so fixed below
 
                 createCard(name, image, codeLocation)
