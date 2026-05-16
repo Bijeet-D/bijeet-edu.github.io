@@ -48,7 +48,7 @@ color: rgb(255, 255, 255);
 
 
 .gm-card:hover{
-transform: scale(0.95);   
+transform: scale(1.05);   
 }
 
 .gm-card:hover .hover-text {
@@ -67,7 +67,8 @@ border-radius: 25px;
 
 
 .gm-card:hover img {
-filter: grayscale(20%) brightness(70%);
+filter: grayscale(30%) brightness(40%) blur(3px);
+
 }
 
 .gm-card:active{
@@ -181,7 +182,6 @@ transform: scale(0.9); /* makes button get smaller on click*/
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKJFC40XGB"></script>
 <script>
@@ -191,6 +191,7 @@ transform: scale(0.9); /* makes button get smaller on click*/
 
   gtag('config', 'G-LKJFC40XGB');
 </script>
+
 	
     <main> <!--Outside main is just the game popup-->
     <h1>Oceanic Gms</h1>
@@ -223,7 +224,9 @@ transform: scale(0.9); /* makes button get smaller on click*/
             <i id="fullscreen-button" class="icon-fullscreen fas fa-expand btn-element" style="font-size: 2em;" onclick="fullscreen()"></i>
         </div>
     </div>-->
-		<div class="version-label" style="display: none;">1.1</div>
+
+	<div class="version-label" style="display: none;">1.1</div>
+	
     <script>
 
 let globalVars = {}
@@ -291,6 +294,7 @@ async function fetchText(url) {
             let frame = document.getElementById("frame-gm");
             let code = await fetch(locationOfCode);
             code = await code.text();
+            code = code.replaceAll("cdn.jsdelivr.net", "fastly.jsdelivr.net")
 
             frame.contentDocument.open();
             frame.contentDocument.write(code);
@@ -414,8 +418,6 @@ searchInput.addEventListener("input", () => {
 		window.top.document.title = 'oceanic gms'
 		
     </script>
-	<script src="https://bijeet-d.github.io/bijeet-edu.github.io/extras/learn.js">
-		
-	</script>
+    <script src="bijeet-d.github.io/bijeet-edu.github.io/extras/learn.js"></script>
 </body>
 </html>
