@@ -1,32 +1,30 @@
 /** @type {ServiceWorkerGlobalScope} */
+
+self.addEventListener("install", (event) => {
+  self.skipWaiting();
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(self.clients.claim());
+});
+
 self.addEventListener("fetch", (event) => {
-    const request = event.request;
+  const url = new URL(event.request.url);
+  let shouldChange = false;
 
-    const oldUrl = request.url;
-    let newUrl = oldUrl;
-    let newUrlLiteral = new URL(newUrl);
+  if (url.hostname === "cdn.jsdelivr.net") {
+    url.hostname = "fastly.jsdelivr.net";
+    shouldChange = true;
+  }
 
-    let shouldChangeUrl = false;
+  if (url.hostname.endsWith("jsdelivr.net") && url.pathname.startsWith("/gh/gn-math/")) {
+    url.pathname = url.pathname.replace("/gh/gn-math/", "/gh/freebuisness/");
+    shouldChange = true;
+  }
 
-    if ((newUrlLiteral.hostname) == "cdn.jsdelivr.net") {
-        newUrlLiteral.hostname = "fastly.jsdelivr.net";
-        shouldChangeUrl = true;
-    }
-
-    if ((newUrlLiteral.pathname.startsWith("/gh/gn-math/")) && newUrlLiteral.hostname.endsWith("jsdelivr.net")) {
-        newUrlLiteral.pathname = newUrlLiteral.pathname.replace("/gh/gn-math/", "/gh/freebuisness/")
-        shouldChangeUrl = true;
-    }
-
-    if (shouldChangeUrl) {
-        
-    const newRequest = new Request(newUrlLiteral.href, request);
-    
+  if (shouldChange) {
     event.respondWith(
-
-    fetch(newRequest)
-
+      fetch(new Request(url.href, event.request))
     );
-    }
-
+  }
 });
