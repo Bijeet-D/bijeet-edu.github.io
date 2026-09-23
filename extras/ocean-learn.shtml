@@ -393,7 +393,7 @@ function closeGmWindow() {
         el.style.display = 'none'
     });
 //==========
-//=========
+//==========
 inputLower = input.toLowerCase();
 
 for (let i = 0; i < gmNames.length; i++) {
